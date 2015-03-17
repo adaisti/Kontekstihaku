@@ -1,6 +1,6 @@
 # Määrittelydokumentti
 
-Työn tarkoituksena tutkia algoritmejä, joiden avulla etsiä ja vertailla sanojen esiintymistä kielellisisssä konteksteissa.
+Työn tarkoituksena tutkia algoritmejä, joiden avulla etsiä ja vertailla sanojen esiintymistä kielellisissä konteksteissa tai tuottaa tekstiä näistä konteksteista hankittujen tietojen pohjalta.
 
 Työssä on otettu jonkun verran mallia Natural Language Tool Kit -paketista, esimerkiksi sen similar()-metodista. Metodi etsii annetuille sanoille annetusta tekstistä sitä, millaisissa konteksteissa (eli millaisten sanojen ympäröiminä) ne esiintyvät, ja vertailee sitä, mitkä sanat esiintyvät usein samanlaisissa konteksteissa. NLTK:n metodista poiketen tässä työssä halutaan kuitenkin haulta monipuolisempia  ominaisuuksia: voitaisiin esimerkiksi vertailla erilaajuisia esiintymisympäristöjä tai syntaktisesti samankaltaisia eri sanoja sisältäviä ympäristöjä.
 
