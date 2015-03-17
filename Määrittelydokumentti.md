@@ -9,5 +9,7 @@ Aluksi lähdetään siis työstämään metodeja, joiden avulla saadaan ainoasta
 Yksi mahdollinen hyödyllinen tietorakenne työn toteuttamisen kannalta voisi olla trie-puurakenne, johon voitaisiin tallettaa lauseiden alkuosia. Trie-rakenteiden aikavaatimus haulle on O(s), missä s on talletetun merkkijohon pituus. Metodien toiminnan tehokkuutta voidaan myös arvioida mittaamalla niiden nopeutta python-koodina toteutetun NLTK:n samankaltaisten metodien kanssa, kunhan algoritmit ovat valmiita. 
 
 http://en.wikipedia.org/wiki/Trie
+
 http://www.nltk.org/book/ch01.html#searching-text
+
 http://www.nltk.org/_modules/nltk/text.html#Text.similar
