@@ -41,5 +41,24 @@ public class TekstiTest {
     public void testOnLopetusmerkkiTunnistaaMerkit() {
         assertEquals(true, teksti.onLopetusmerkki('!'));
     }
+
+    @Test
+    public void testEsiintymatKunEiEsiinny() {
+        assertEquals(0, teksti.esiintymat("hamsteri").size());
+    }
+
+    @Test
+    public void testEsiintymatLoytaaTasanOikeanMaaran() {
+        assertEquals(2, teksti.esiintymat("vai").size());
+    }
+
+    @Test
+    public void testEtsiEsiintymiaLoytaaKaikkiLauseet() {
+        assertEquals(3, teksti.etsiEsiintymia("vai").size());
+    }
+
+    @Test
+    public void testSaneet() {
+    }
     
 }

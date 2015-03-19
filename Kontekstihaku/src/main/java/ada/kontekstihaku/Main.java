@@ -5,6 +5,9 @@
  */
 package ada.kontekstihaku;
 
+import ada.kontekstihaku.logiikka.*;
+import ada.kontekstihaku.kayttoliittyma.*;
+
 /**
  *
  * @author Ada
@@ -12,6 +15,10 @@ package ada.kontekstihaku;
 public class Main {
     
     public static void main(String[] args) {
+        
+        Teksti teksti = new Teksti("Ollako vai eikö olla? Kas siinä pulma! Jalompaa onko vaiti ottaa vastaan pahansuovan onnen turmannuolet, vai aseella selvä tehdä murheistaan? Lopettaa ne kerta kaikkiaan. Kuolla, nukkua vain, nukkua! Ja kenties nähdä unta?");
+        
+        System.out.println(teksti.etsiEsiintymia("vai").size());
         
     }
     

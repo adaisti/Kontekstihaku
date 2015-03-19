@@ -6,6 +6,7 @@
 package ada.kontekstihaku.logiikka;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  *
@@ -16,11 +17,19 @@ public class Teksti {
     private String teksti;
     private ArrayList<String> virkkeet;
     private ArrayList<String> saneet;
+    private HashSet<String> sananmuodot;
+        
     
     public Teksti(String teksti) {
         this.teksti = teksti;
         this.virkkeet = new ArrayList<>();
         this.saneet = new ArrayList<>();
+        this.sananmuodot = new HashSet<>();
+        jaottele();
+        
+        for (String sane : saneet) {
+            sananmuodot.add(sane);
+        }
     }
     
     public void jaottele() {
@@ -36,6 +45,116 @@ public class Teksti {
                 virke = "";
             }
         }
+    }
+    
+    /**
+     * Metodi etsii annetulle saneelle kaikki sen edessä ja takana olevat saneet
+     * @param sana
+     * @return lista 2 sanan kokoisista konteksteista
+     */
+    
+    public ArrayList<String> peruskontekstit(String sana) {
+        ArrayList<String> kontekstit = new ArrayList<String>();
+        String konteksti = "";
+        
+        for (String esiintyma : esiintymat(sana)) {
+            String osat[] = esiintyma.split(" ");
+            
+            for (int i = 0; i < osat.length; i++) {
+                if (osat[i].equals(sana)) {
+                    if (i > 0 && i < osat.length - 1) {
+                        konteksti += osat[i - 1];
+                        konteksti += "_";
+                        konteksti += osat[i + 1];
+                    } else if (i == 0) {
+                        konteksti += "_";
+                        konteksti += osat[i + 1];
+                    } else if (i == osat.length - 1) {
+                        konteksti += osat[i - 1];
+                        konteksti += "_";
+                    }
+                    kontekstit.add(konteksti);
+                    konteksti = "";
+                }
+            }
+        }
+        return kontekstit;
+    }
+    
+    /**
+     * Metodi etsii kahdelle sanalle yhteiset peruskontekstit eli tilanteet joissa ne ovat samojen sanojen ympäröiminä
+     * @param sana1
+     * @param sana2
+     * @return molemmille sanoille yhteiset peruskontekstit
+     */
+    
+    public ArrayList<String> yhteisetPeruskontekstit(String sana1, String sana2) {
+        ArrayList<String> yhteisetKontekstit = new ArrayList<String>();
+        ArrayList<String> ekanPeruskontekstit = peruskontekstit(sana1);
+        ArrayList<String> tokanPeruskontekstit = peruskontekstit(sana2);
+        for (String konteksti : ekanPeruskontekstit) {
+            if (tokanPeruskontekstit.contains(konteksti)) {
+                yhteisetKontekstit.add(konteksti);
+            }
+        }
+        return yhteisetKontekstit;
+    }
+    
+    /**
+     * Metodi listaa kaikki sanat jotka ovat ainakin kerran esiintyneet samanlaisessa kontekstissa kuin
+     * annettu sana
+     * @param sana
+     * @return samoissa yhteyksissä esiintyneet sanat
+     */
+    
+    public ArrayList<String> samankaltaisiaSanoja(String sana) {
+        ArrayList<String> samankaltaiset = new ArrayList<String>();
+        for (String sananmuoto : this.sananmuodot) {
+            if (!yhteisetPeruskontekstit(sana, sananmuoto).isEmpty()) {
+                samankaltaiset.add(sananmuoto);
+            }
+        }
+        return samankaltaiset;
+    }
+    
+    
+    /**
+     * Metodi etsii annetun sanan esiintymät tekstissä
+     * @param sana
+     * @return 
+     */
+    
+    public ArrayList<String> esiintymat(String sana) {
+        
+        // pitäisi vielä laittaa muut ympäristöt kuin välilyöntien ympärillä
+        // miten tehdään isojen ja pienten kirjainten kanssa, riittääkö tämä?
+        sana = sana.toLowerCase();
+        String haettava = " ";
+        haettava += sana;
+        haettava += " ";
+        if (!this.saneet.contains(sana)) {
+            return new ArrayList<String>();
+        } else {
+            return etsiEsiintymia(haettava);
+        }
+    }
+    
+    /**
+     * Metodi etsii kaikki annetun merkkijonon esiintymät eli löytää sen myös, vaikka se olisi osa muuta sanaa
+     * @param sana
+     * @return lista virkkeistä, joissa esiintyy
+     */
+    
+    public ArrayList<String> etsiEsiintymia(String sana) {
+        ArrayList<String> esiintymat = new ArrayList<String>();
+        for (String virke : this.virkkeet) {
+            if (virke.contains(sana)) {
+                esiintymat.add(virke);
+                            System.out.println(virke);
+
+            }
+        }
+        return esiintymat;
     }
     
     public boolean onLopetusmerkki(char merkki) {
