@@ -32,6 +32,10 @@ public class Teksti {
         }
     }
     
+    /**
+     * Metodi jakaa annetun tekstin saneiksi ja virkkeiksi
+     */
+    
     public void jaottele() {
         String[] osat = this.teksti.split(" ");
         String virke = "";
@@ -54,7 +58,7 @@ public class Teksti {
      */
     
     public ArrayList<String> peruskontekstit(String sana) {
-        ArrayList<String> kontekstit = new ArrayList<String>();
+        ArrayList<String> kontekstit = new ArrayList();
         String konteksti = "";
         
         for (String esiintyma : esiintymat(sana)) {
@@ -89,7 +93,7 @@ public class Teksti {
      */
     
     public ArrayList<String> yhteisetPeruskontekstit(String sana1, String sana2) {
-        ArrayList<String> yhteisetKontekstit = new ArrayList<String>();
+        ArrayList<String> yhteisetKontekstit = new ArrayList();
         ArrayList<String> ekanPeruskontekstit = peruskontekstit(sana1);
         ArrayList<String> tokanPeruskontekstit = peruskontekstit(sana2);
         for (String konteksti : ekanPeruskontekstit) {
@@ -108,7 +112,7 @@ public class Teksti {
      */
     
     public ArrayList<String> samankaltaisiaSanoja(String sana) {
-        ArrayList<String> samankaltaiset = new ArrayList<String>();
+        ArrayList<String> samankaltaiset = new ArrayList();
         for (String sananmuoto : this.sananmuodot) {
             if (!yhteisetPeruskontekstit(sana, sananmuoto).isEmpty()) {
                 samankaltaiset.add(sananmuoto);
@@ -133,7 +137,7 @@ public class Teksti {
         haettava += sana;
         haettava += " ";
         if (!this.saneet.contains(sana)) {
-            return new ArrayList<String>();
+            return new ArrayList();
         } else {
             return etsiEsiintymia(haettava);
         }
@@ -146,7 +150,7 @@ public class Teksti {
      */
     
     public ArrayList<String> etsiEsiintymia(String sana) {
-        ArrayList<String> esiintymat = new ArrayList<String>();
+        ArrayList<String> esiintymat = new ArrayList();
         for (String virke : this.virkkeet) {
             if (virke.contains(sana)) {
                 esiintymat.add(virke);
@@ -156,6 +160,12 @@ public class Teksti {
         }
         return esiintymat;
     }
+    
+    /**
+     * Metodi tutkii onko jokin merkki lopetusmerkki
+     * @param merkki
+     * @return true jos on lopetusmerkki
+     */
     
     public boolean onLopetusmerkki(char merkki) {
         if (merkki == '.' || merkki == '!' || merkki == '?') {
