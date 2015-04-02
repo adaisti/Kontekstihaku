@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ada.kontekstihaku.logiikka.ListaTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.376 sec <<< FAILURE!
-testIsEmptyToimiiTaydella(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.03 sec  <<< ERROR!
+Tests run: 12, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.096 sec <<< FAILURE!
+testIsEmptyToimiiTaydella(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testIsEmptyToimiiTaydella(ListaTest.java:38)
@@ -70,7 +70,7 @@ java.lang.ArrayIndexOutOfBoundsException: 0
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testContainsEiLoydaKunEiOle(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.003 sec  <<< ERROR!
+testContainsEiLoydaKunEiOle(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.002 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testContainsEiLoydaKunEiOle(ListaTest.java:52)
@@ -104,7 +104,7 @@ java.lang.ArrayIndexOutOfBoundsException: 0
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testClear(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.003 sec  <<< ERROR!
+testClear(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.004 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testClear(ListaTest.java:59)
@@ -138,7 +138,7 @@ java.lang.ArrayIndexOutOfBoundsException: 0
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testGetLoytaaKunOn(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.008 sec  <<< ERROR!
+testGetLoytaaKunOn(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testGetLoytaaKunOn(ListaTest.java:67)
@@ -172,7 +172,7 @@ java.lang.ArrayIndexOutOfBoundsException: 0
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testGetEiLoydaKunEiOle(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.002 sec  <<< ERROR!
+testGetEiLoydaKunEiOle(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testGetEiLoydaKunEiOle(ListaTest.java:74)
@@ -240,7 +240,7 @@ java.lang.ArrayIndexOutOfBoundsException: 0
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testAddLisaaKunEiOleViela(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.003 sec  <<< ERROR!
+testAddLisaaKunEiOleViela(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testAddLisaaKunEiOleViela(ListaTest.java:94)
@@ -274,7 +274,7 @@ java.lang.ArrayIndexOutOfBoundsException: 0
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testAddLisaaKunOnJo(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0.003 sec  <<< ERROR!
+testAddLisaaKunOnJo(ada.kontekstihaku.logiikka.ListaTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testAddLisaaKunOnJo(ListaTest.java:101)

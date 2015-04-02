@@ -37,6 +37,7 @@ public class Trie {
      * Metodi tutkii sisältääkö joku solmu alipuineen annetun sanan
      * @param sana
      * @param solmu
+     * @param i
      * @return 
      */
     
@@ -87,6 +88,7 @@ public class Trie {
         if (alkusolmu.etsiLastenArvoista(sana.charAt(0)) == null) {
             luoAlipuu(sana, alkusolmu);
         } else {
+            
             Solmu nykyinen = alkusolmu;
             for (int i = 0; i < sana.length(); i++) {
                 Solmu oikeaLapsi = nykyinen.etsiLastenArvoista(sana.charAt(i));
@@ -96,6 +98,8 @@ public class Trie {
                     nykyinen = oikeaLapsi;
                 }
             }
+            
+           
             
         }
     }

@@ -70,9 +70,10 @@ public class TrieTest {
         trie.lisaa("s");
         trie.lisaa("su");
         trie.lisaa("suk");
-        assertTrue(trie.sisaltaa("s"));
-        //assertFalse(trie.sisaltaa("sukk"));
-        //assertFalse(trie.sisaltaa("a"));
+        trie.lisaa("a");
+//        assertTrue(trie.sisaltaa("s"));
+        assertTrue(trie.sisaltaa("a"));
+//        assertTrue(trie.sisaltaa("suk"));
     }
 
     @Test
