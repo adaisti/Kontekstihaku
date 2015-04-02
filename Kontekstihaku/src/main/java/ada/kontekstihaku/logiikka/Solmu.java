@@ -10,6 +10,8 @@ import java.util.Set;
 
 /**
  *
+ * Luokka toteuttaa Trie-rakenteeseen kuuluvan solmun
+ * 
  * @author Ada
  */
 public class Solmu {
@@ -24,17 +26,37 @@ public class Solmu {
         this.moneenkoSanaanKuuluu = 0;
     }
     
+    /**
+     * Metodi lisää solmulle lapsen
+     * @param lapsi 
+     */
+    
     public void lisaaLapsi(Solmu lapsi) {
         this.lapset.add(lapsi);
     }
+    
+    /**
+     * Metodi kasvattaa solmua hyödyntävien sanojen määrää yhdellä
+     */
     
     public void lisaaKuuluvienSanojenMaaraa() {
         this.moneenkoSanaanKuuluu++;
     }
     
+    /**
+     * Metodi kertoo, moniko sana hyödyntää solmun säilömää merkkiä
+     * @return sanojen määrä
+     */
+    
     public int moneenkoSanaanKuuluu() {
         return moneenkoSanaanKuuluu;
     }
+    
+    /**
+     * Metodi etsii solmun lapsista annetun solmun
+     * @param lapsi
+     * @return solmu jos on lapsissa, muuten null
+     */
     
     public Solmu etsiLapsi(Solmu lapsi) {
         for (Solmu listalapsi : lapset) {
@@ -45,9 +67,20 @@ public class Solmu {
         return null;
     }
     
+    /**
+     * Metodi palauttaa solmun lapset
+     * @return lapset
+     */
+    
     public HashSet<Solmu> getLapset() {
         return this.lapset;
     }
+    
+    /**
+     * 
+     * @param merkki
+     * @return 
+     */
     
     public Solmu etsiLastenArvoista(char merkki) {
         for (Solmu lapsi : lapset) {
@@ -58,12 +91,21 @@ public class Solmu {
         return null;
     }
     
+    /**
+     * Metodi palauttaa solmun sisältämän merkin
+     * @return merkki
+     */
+    
     public char arvo() {
         return this.arvo;
     }
     
     @Override
     public boolean equals(Object o) {
+        
+        if (o == null) {
+            return false;
+        }
         
         if (o.getClass() != Solmu.class) {
             return false;

@@ -7,6 +7,8 @@ package ada.kontekstihaku.kayttoliittyma;
 
 /**
  *
+ * Luokka vastaa käyttöliittymän toteutuksesta
+ * 
  * @author Ada
  */
 public class Kayttoliittyma {

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 /**
  *
+ * Luokka toteuttaa sananmuotojen säilömiseen ja hakemiseen soveltuvan trie-tietorakenteen
+ * 
  * @author Ada
  */
 public class Trie {
@@ -58,10 +60,20 @@ public class Trie {
         return false;
     }
     
+    /**
+     * Metodi tutkii sisältääkö Trie annetun sanan
+     * @param sana
+     * @return true jos sisältää
+     */
     
     public boolean sisaltaa(String sana) {
         return sisaltaa(sana, alkusolmu, 0);
     }
+    
+    /**
+     * Metodi lisää Trieen annetun sanan
+     * @param sana 
+     */
     
     public void lisaa(String sana) {
         
@@ -87,6 +99,12 @@ public class Trie {
             
         }
     }
+    
+    /**
+     * Metodi luo annetulle solmulle alipuun annetusta sanasta
+     * @param sana
+     * @param vanhempi 
+     */
     
     public void luoAlipuu(String sana, Solmu vanhempi) {
         

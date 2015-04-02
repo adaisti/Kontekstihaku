@@ -10,6 +10,8 @@ import java.util.HashSet;
 
 /**
  *
+ * Luokka kokoaa erilaisia tekstien tutkimiseen käytettäviä metodeja
+ * 
  * @author Ada
  */
 public class Teksti {
@@ -107,7 +109,7 @@ public class Teksti {
     /**
      * Metodi listaa kaikki sanat jotka ovat ainakin kerran esiintyneet samanlaisessa kontekstissa kuin
      * annettu sana
-     * @ param sana
+     * @param sana
      * @return samoissa yhteyksissä esiintyneet sanat
      */
     

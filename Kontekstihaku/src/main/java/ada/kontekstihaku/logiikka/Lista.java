@@ -12,6 +12,8 @@ import java.util.ListIterator;
 
 /**
  *
+ * Luokka toteuttaa Listan taulukoiden avulla
+ * 
  * @author Ada
  * @param <T>
  */
