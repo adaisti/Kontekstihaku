@@ -21,7 +21,7 @@ public class Lista<T> implements List<T> {
 
     private T[] t;
     
-    public Lista(String sana) {
+    public Lista() {
         t = (T[]) new String [0];
     }
     
