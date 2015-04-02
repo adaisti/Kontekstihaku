@@ -53,19 +53,19 @@ public class Teksti {
     
     /**
      * Metodi etsii annetulle saneelle kaikki sen edessä ja takana olevat saneet
-     * @param sana
+     * @param sananmuoto
      * @return lista 2 sanan kokoisista konteksteista
      */
     
-    public ArrayList<String> peruskontekstit(String sana) {
+    public ArrayList<String> peruskontekstit(String sananmuoto) {
         ArrayList<String> kontekstit = new ArrayList();
         String konteksti = "";
         
-        for (String esiintyma : esiintymat(sana)) {
+        for (String esiintyma : esiintymat(sananmuoto)) {
             String osat[] = esiintyma.split(" ");
             
             for (int i = 0; i < osat.length; i++) {
-                if (osat[i].equals(sana)) {
+                if (osat[i].equals(sananmuoto)) {
                     if (i > 0 && i < osat.length - 1) {
                         konteksti += osat[i - 1];
                         konteksti += "_";
@@ -107,7 +107,7 @@ public class Teksti {
     /**
      * Metodi listaa kaikki sanat jotka ovat ainakin kerran esiintyneet samanlaisessa kontekstissa kuin
      * annettu sana
-     * @param sana
+     * @ param sana
      * @return samoissa yhteyksissä esiintyneet sanat
      */
     
