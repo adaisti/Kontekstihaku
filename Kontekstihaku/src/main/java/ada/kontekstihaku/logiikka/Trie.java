@@ -65,6 +65,9 @@ public class Trie {
     
     public void lisaa(String sana) {
         
+        
+        //lisää kuuluvien sanojen määrää vielä!
+        
         if (sisaltaa(sana, alkusolmu, 0)) {
             return;
         }
@@ -85,14 +88,9 @@ public class Trie {
         }
     }
     
-    public void tulostaKaikkiSolmut() {
-        for (Solmu lapsi :alkusolmu.getLapset()) {
-            System.out.println(lapsi);
-            
-        }
-    }
-    
     public void luoAlipuu(String sana, Solmu vanhempi) {
+        
+        //lisää kuuluvien sanojen määrää vielä!
         Solmu nykyinen = vanhempi;
         for (int i = 0; i < sana.length(); i++) {
             Solmu lapsi = new Solmu(sana.charAt(i));

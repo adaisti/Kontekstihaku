@@ -16,14 +16,24 @@ public class Solmu {
     
     private char arvo;
     public HashSet<Solmu> lapset;
+    private int moneenkoSanaanKuuluu;
     
     public Solmu(char arvo) {
         this.arvo = arvo;
         this.lapset = new HashSet();
+        this.moneenkoSanaanKuuluu = 0;
     }
     
     public void lisaaLapsi(Solmu lapsi) {
         this.lapset.add(lapsi);
+    }
+    
+    public void lisaaKuuluvienSanojenMaaraa() {
+        this.moneenkoSanaanKuuluu++;
+    }
+    
+    public int moneenkoSanaanKuuluu() {
+        return moneenkoSanaanKuuluu;
     }
     
     public Solmu etsiLapsi(Solmu lapsi) {
