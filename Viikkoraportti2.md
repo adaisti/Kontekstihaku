@@ -1,0 +1,3 @@
+# Viikkoraportti 2
+
+Ensiksi rakentamani metodit käyttivät tietorakenteinaan listaa, ja päätin seuraavaksi tutkia tehokkaampia tietorakenteita luonnollisen kielen käsittelyyn. Toki työssä oli tarkoitus myös toteuttaa kaikki käytetyt tietorakenteet itse, ja siksi toteutinkin oman Lista-luokan, jolla korvata Javan ArrayList. Toteuttamani Lista-luokka sallii listan alkioiksi Stringejä, sillä kaikki projektissa listoiksi kerättävät objektit ovat nimenomaan String-muotoisia. Geneerisen tietorakenteen toteuttaminen osoittautui luultua hankalammaksi, joten ainakaan tässä vaiheessa projektissa luotu Lista-luokka ei salli listan alkioiden olevan muita kuin String-luokan ilmentymiä.
