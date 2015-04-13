@@ -1,3 +1,3 @@
 # Testausdokumentti
 
-Luonnollisen kielen käsittelyyn liittyvien ohjelmien testaaminen on lähtökohtaisesti aina vähän vaikeaa. 
+Luonnollisen kielen käsittelyyn liittyvien ohjelmien testaaminen on lähtökohtaisesti usein varsin haastavaa. 
