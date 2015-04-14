@@ -5,6 +5,7 @@
  */
 package ada.kontekstihaku.logiikka;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,22 +18,24 @@ import java.util.Set;
 public class Solmu {
     
     private char arvo;
-    public HashSet<Solmu> lapset;
+    public ArrayList<Solmu> lapset;
     private int moneenkoSanaanKuuluu;
     
     public Solmu(char arvo) {
         this.arvo = arvo;
-        this.lapset = new HashSet();
+        this.lapset = new ArrayList();
         this.moneenkoSanaanKuuluu = 0;
     }
     
     /**
-     * Metodi lisää solmulle lapsen
+     * Metodi lisää solmulle lapsen, jos sitä ei ole solmulla ennestään
      * @param lapsi 
      */
     
     public void lisaaLapsi(Solmu lapsi) {
-        this.lapset.add(lapsi);
+        if (!this.lapset.contains(lapsi)) {
+            this.lapset.add(lapsi);
+        }
     }
     
     /**
@@ -72,7 +75,7 @@ public class Solmu {
      * @return lapset
      */
     
-    public HashSet<Solmu> getLapset() {
+    public ArrayList<Solmu> getLapset() {
         return this.lapset;
     }
     

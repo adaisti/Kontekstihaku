@@ -78,9 +78,7 @@ public class Trie {
     
     public void lisaa(String sana) {
         
-        
-        //lisää kuuluvien sanojen määrää vielä!
-        
+       
         if (sisaltaa(sana, alkusolmu, 0)) {
             return;
         }
@@ -90,12 +88,24 @@ public class Trie {
         } else {
             
             Solmu nykyinen = alkusolmu;
+            nykyinen.lisaaKuuluvienSanojenMaaraa();
+            
             for (int i = 0; i < sana.length(); i++) {
                 Solmu oikeaLapsi = nykyinen.etsiLastenArvoista(sana.charAt(i));
+                
                 if (oikeaLapsi == null) {
                     luoAlipuu(sana.substring(i, sana.length()), nykyinen);
+                    return;
                 } else {
                     nykyinen = oikeaLapsi;
+                    nykyinen.lisaaKuuluvienSanojenMaaraa();
+                    
+                    if (i == sana.length() - 1) {
+                        Solmu lopetus = new Solmu('$');
+                        nykyinen.lisaaLapsi(lopetus);
+                        lopetus.lisaaKuuluvienSanojenMaaraa();
+                    }
+                    
                 }
             }
             
@@ -112,15 +122,16 @@ public class Trie {
     
     public void luoAlipuu(String sana, Solmu vanhempi) {
         
-        //lisää kuuluvien sanojen määrää vielä!
         Solmu nykyinen = vanhempi;
         for (int i = 0; i < sana.length(); i++) {
             Solmu lapsi = new Solmu(sana.charAt(i));
             nykyinen.lisaaLapsi(lapsi);
             nykyinen = lapsi;
+            nykyinen.lisaaKuuluvienSanojenMaaraa();
         }
         Solmu lapsi = new Solmu('$');
         nykyinen.lisaaLapsi(lapsi);
+        lapsi.lisaaKuuluvienSanojenMaaraa();
     }
     
 }

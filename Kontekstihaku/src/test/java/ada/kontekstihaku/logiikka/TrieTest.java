@@ -71,13 +71,17 @@ public class TrieTest {
         trie.lisaa("su");
         trie.lisaa("suk");
         trie.lisaa("a");
-//        assertTrue(trie.sisaltaa("s"));
+        assertTrue(trie.sisaltaa("s"));
         assertTrue(trie.sisaltaa("a"));
-//        assertTrue(trie.sisaltaa("suk"));
+        assertTrue(trie.sisaltaa("suk"));
     }
 
     @Test
-    public void testLuoAlipuu() {
+    public void testSanojenMaaraaLisataan() {
+        trie.lisaa("sukka");
+        assertEquals(trie.alkusolmu.moneenkoSanaanKuuluu(), 2);
+        trie.lisaa("aasi");
+        assertEquals(trie.alkusolmu.etsiLastenArvoista('s').moneenkoSanaanKuuluu(), 2);
     }
 
 }
