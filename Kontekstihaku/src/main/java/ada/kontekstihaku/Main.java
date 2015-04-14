@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         
         
-        Teksti teksti = new Teksti("kisa kisko kii tuli vesi veri vasta");
+        Teksti teksti = new Teksti("kisa kisko kii tuli vesi veri vasta kisa");
         
         Trie trie = new Trie(teksti);
         trie.alusta();

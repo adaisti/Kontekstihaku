@@ -83,12 +83,13 @@ public class Trie {
             return;
         }
         
+        alkusolmu.lisaaKuuluvienSanojenMaaraa();
+        
         if (alkusolmu.etsiLastenArvoista(sana.charAt(0)) == null) {
             luoAlipuu(sana, alkusolmu);
         } else {
             
             Solmu nykyinen = alkusolmu;
-            nykyinen.lisaaKuuluvienSanojenMaaraa();
             
             for (int i = 0; i < sana.length(); i++) {
                 Solmu oikeaLapsi = nykyinen.etsiLastenArvoista(sana.charAt(i));
