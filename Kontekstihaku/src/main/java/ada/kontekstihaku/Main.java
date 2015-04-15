@@ -20,10 +20,7 @@ public class Main {
         
         Teksti teksti = new Teksti("kisa kisko kii tuli vesi veri vasta kisa");
         
-        Trie trie = new Trie(teksti);
-        trie.alusta();
-        
-        Solmu s = trie.alkusolmu;
+        Solmu s = teksti.getTrie().alkusolmu;
         
         
         tulostaSolmut(s);

@@ -20,6 +20,7 @@ public class Teksti {
     private ArrayList<String> virkkeet;
     private ArrayList<String> saneet;
     private HashSet<String> sananmuodot;
+    private Trie trie;
         
     
     public Teksti(String teksti) {
@@ -27,7 +28,9 @@ public class Teksti {
         this.virkkeet = new ArrayList<>();
         this.saneet = new ArrayList<>();
         this.sananmuodot = new HashSet<>();
+        this.trie = new Trie();
         jaottele();
+        alustaTrie();
         
         for (String sane : saneet) {
             sananmuodot.add(sane);
@@ -51,6 +54,20 @@ public class Teksti {
                 virke = "";
             }
         }
+    }
+    
+    /**
+     * Metodi alustaa trien
+     */
+    
+    public void alustaTrie() {
+        for (String sane : saneet) {
+            trie.lisaa(sane);
+        }
+    }
+    
+    public Trie getTrie() {
+        return this.trie;
     }
     
     /**
@@ -176,6 +193,7 @@ public class Teksti {
         return false;
     }
     
+   
     public ArrayList<String> virkkeet() {
         return this.virkkeet;
     }

@@ -39,11 +39,30 @@ public class Solmu {
     }
     
     /**
+     * Metodi poistaa lapsen
+     * @param lapsi 
+     */
+    
+    public void poistaLapsi(Solmu lapsi) {
+        if (this.lapset.contains(lapsi)) {
+            this.lapset.remove(lapsi);
+        }
+    }
+    
+    /**
      * Metodi kasvattaa solmua hyödyntävien sanojen määrää yhdellä
      */
     
     public void lisaaKuuluvienSanojenMaaraa() {
         this.moneenkoSanaanKuuluu++;
+    }
+    
+    /**
+     * Metodi vähentää solmua hyödyntävien sanojen määrää yhdellä
+     */
+    
+    public void vahennaKuuluvienSanojenMaaraa() {
+        this.moneenkoSanaanKuuluu--;
     }
     
     /**

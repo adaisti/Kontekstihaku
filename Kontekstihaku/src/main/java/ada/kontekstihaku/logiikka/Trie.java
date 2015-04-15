@@ -15,23 +15,12 @@ import java.util.ArrayList;
  */
 public class Trie {
     
-    private Teksti teksti;
     public Solmu alkusolmu;
     
-    public Trie(Teksti teksti) {
-        this.teksti = teksti;
+    public Trie() {
         this.alkusolmu = new Solmu(' ');
     }
     
-    /**
-     * Metodi alustaa Trie-rakenteen tekstin perusteella
-     */
-    
-    public void alusta() {
-        for (String sane : this.teksti.saneet()) {
-            lisaa(sane);
-        }
-    }
     
     /**
      * Metodi tutkii sisältääkö joku solmu alipuineen annetun sanan
@@ -70,6 +59,39 @@ public class Trie {
     public boolean sisaltaa(String sana) {
         return sisaltaa(sana, alkusolmu, 0);
     }
+    
+    public boolean sisaltaaNainAlkavanSanan(String alku) {
+        return sisaltaa (alku + "$", alkusolmu, 0);
+    }
+    
+    /**
+     * Metodi poistaa sanan puusta
+     * @param sana 
+     */
+    
+    public void poista(String sana) {
+        if (!sisaltaa(sana)) {
+            return;
+        }
+        
+        Solmu nykyinen = alkusolmu;
+        
+        for (int i = 0; i < sana.length(); i++) {
+            nykyinen.vahennaKuuluvienSanojenMaaraa();
+            Solmu lapsi = nykyinen.etsiLastenArvoista(sana.charAt(i));
+            
+            if (lapsi.moneenkoSanaanKuuluu() == 1) {
+                nykyinen.poistaLapsi(lapsi);
+                return;
+            } else {
+                nykyinen = lapsi;
+            }
+           
+        }
+        
+    }
+    
+    
     
     /**
      * Metodi lisää Trieen annetun sanan

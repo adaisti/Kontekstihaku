@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="1" name="ada.kontekstihaku.logiikka.SolmuTest" time="0.055" errors="0" skipped="0">
+<testsuite tests="8" failures="1" name="ada.kontekstihaku.logiikka.SolmuTest" time="0.052" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -14,7 +14,6 @@
     <property name="user.country" value="FI"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
-    <property name="test" value="ada.kontekstihaku.logiikka.SolmuTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/Users/Ada/Kontekstihaku/Kontekstihaku"/>
     <property name="java.runtime.version" value="1.8.0_20-b26"/>
@@ -33,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.10.2"/>
+    <property name="os.version" value="10.10.3"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/Ada"/>
     <property name="user.timezone" value="Europe/Helsinki"/>
@@ -45,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=ada.kontekstihaku.logiikka.SolmuTest -Dmaven.ext.class.path=/Applications/tmcbeans.app/Contents/Resources/tmcbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/Applications/tmcbeans.app/Contents/Resources/tmcbeans/java/maven-nblib/netbeans-eventspy.jar clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fi"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -63,8 +62,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaLapsi" time="0.001"/>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaKuuluvienSanojenMaaraa" time="0.001">
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaKuuluvienSanojenMaaraa" time="0.01">
     <failure message="expected:&lt;1&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;1&gt; but was:&lt;0&gt;
 	at org.junit.Assert.fail(Assert.java:93)
 	at org.junit.Assert.failNotEquals(Assert.java:647)
@@ -104,10 +102,11 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEtsiLapsi" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEtsiLapsi" time="0.003"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaLapsi" time="0.003"/>
   <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testGetLapset" time="0"/>
   <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEtsiLastenArvoista" time="0"/>
   <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testArvo" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEquals" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testToString" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEquals" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testToString" time="0.004"/>
 </testsuite>

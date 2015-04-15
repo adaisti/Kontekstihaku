@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="ada.kontekstihaku.logiikka.ListaTest" time="0.093" errors="9" skipped="0">
+<testsuite tests="12" failures="0" name="ada.kontekstihaku.logiikka.ListaTest" time="0.551" errors="9" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -14,7 +14,6 @@
     <property name="user.country" value="FI"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
-    <property name="test" value="ada.kontekstihaku.logiikka.ListaTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/Users/Ada/Kontekstihaku/Kontekstihaku"/>
     <property name="java.runtime.version" value="1.8.0_20-b26"/>
@@ -33,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.10.2"/>
+    <property name="os.version" value="10.10.3"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/Ada"/>
     <property name="user.timezone" value="Europe/Helsinki"/>
@@ -45,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=ada.kontekstihaku.logiikka.ListaTest -Dmaven.ext.class.path=/Applications/tmcbeans.app/Contents/Resources/tmcbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/Applications/tmcbeans.app/Contents/Resources/tmcbeans/java/maven-nblib/netbeans-eventspy.jar clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fi"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -63,9 +62,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testSize" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIsEmptyToimiiTyhjalla" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIsEmptyToimiiTaydella" time="0.001">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIsEmptyToimiiTaydella" time="0.039">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testIsEmptyToimiiTaydella(ListaTest.java:38)
@@ -101,7 +98,8 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testContainsLoytaaKunOn" time="0.001">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testSize" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testContainsLoytaaKunOn" time="0.003">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testContainsLoytaaKunOn(ListaTest.java:45)
@@ -173,7 +171,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testClear" time="0.004">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testClear" time="0.005">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testClear(ListaTest.java:59)
@@ -209,7 +207,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testGetLoytaaKunOn" time="0.001">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testGetLoytaaKunOn" time="0.005">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testGetLoytaaKunOn(ListaTest.java:67)
@@ -245,7 +243,8 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testGetEiLoydaKunEiOle" time="0.001">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIsEmptyToimiiTyhjalla" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testGetEiLoydaKunEiOle" time="0.002">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testGetEiLoydaKunEiOle(ListaTest.java:74)
@@ -281,7 +280,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIndexOfLoytaaKunOn" time="0.001">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIndexOfLoytaaKunOn" time="0.003">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testIndexOfLoytaaKunOn(ListaTest.java:81)
@@ -317,8 +316,8 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIndexOfEiLoydaKunEiOle" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testAddLisaaKunEiOleViela" time="0.001">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testIndexOfEiLoydaKunEiOle" time="0.004"/>
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testAddLisaaKunEiOleViela" time="0.003">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testAddLisaaKunEiOleViela(ListaTest.java:94)
@@ -354,7 +353,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
   </testcase>
-  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testAddLisaaKunOnJo" time="0">
+  <testcase classname="ada.kontekstihaku.logiikka.ListaTest" name="testAddLisaaKunOnJo" time="0.006">
     <error message="0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 0
 	at ada.kontekstihaku.logiikka.Lista.add(Lista.java:62)
 	at ada.kontekstihaku.logiikka.ListaTest.testAddLisaaKunOnJo(ListaTest.java:101)

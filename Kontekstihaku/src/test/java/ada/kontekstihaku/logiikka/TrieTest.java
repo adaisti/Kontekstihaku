@@ -22,29 +22,31 @@ public class TrieTest {
 
     @Before
     public void setUp() {
-        Teksti teksti = new Teksti("suklaa");
-        trie = new Trie(teksti);
-        trie.alusta();
+        trie = new Trie();
     }
 
     @Test
     public void testAlusta() {
+        trie.lisaa("suklaa");
         assertTrue(trie.sisaltaa("suklaa"));
     }
 
     @Test
     public void testSisaltaa_3args() {
+        trie.lisaa("suklaa");
         assertTrue(trie.sisaltaa("suklaa", trie.alkusolmu, 0));
     }
 
     @Test
     public void testSisaltaa_StringLoytaaJosOn() {
+        trie.lisaa("suklaa");
         assertTrue(trie.sisaltaa("suklaa"));
     }
 
     @Test
     public void testSisaltaa_StringEiLoydaJosEiOle() {
-        assertTrue(!trie.sisaltaa("kaali"));
+        trie.lisaa("suklaa");
+        assertFalse(trie.sisaltaa("kaali"));
     }
 
     @Test
@@ -55,6 +57,7 @@ public class TrieTest {
 
     @Test
     public void testLisaaMonta() {
+        trie.lisaa("suklaa");
         trie.lisaa("sukka");
         trie.lisaa("suklaa");
         trie.lisaa("sukkien");
@@ -78,10 +81,29 @@ public class TrieTest {
 
     @Test
     public void testSanojenMaaraaLisataan() {
+        trie.lisaa("suklaa");
         trie.lisaa("sukka");
         assertEquals(trie.alkusolmu.moneenkoSanaanKuuluu(), 2);
         trie.lisaa("aasi");
         assertEquals(trie.alkusolmu.etsiLastenArvoista('s').moneenkoSanaanKuuluu(), 2);
+    }
+    
+    @Test
+    public void sanojenMaaraToimiiPoistaessa() {
+        trie.lisaa("chang");
+        trie.lisaa("ang");
+        assertEquals(trie.alkusolmu.moneenkoSanaanKuuluu(), 2);
+        trie.poista("ang");
+        assertEquals(trie.alkusolmu.moneenkoSanaanKuuluu(), 1);
+    }
+    
+    @Test
+    public void sanojenMaaraToimiiPoistaessaKaks() {
+        trie.lisaa("chang");
+        trie.lisaa("cha");
+        assertEquals(trie.alkusolmu.etsiLastenArvoista('c').moneenkoSanaanKuuluu(), 2);
+        trie.poista("cha");
+        assertEquals(trie.alkusolmu.etsiLastenArvoista('c').moneenkoSanaanKuuluu(), 1);
     }
 
 }
