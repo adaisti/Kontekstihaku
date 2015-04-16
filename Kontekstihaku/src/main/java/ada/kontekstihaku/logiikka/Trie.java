@@ -60,8 +60,39 @@ public class Trie {
         return sisaltaa(sana, alkusolmu, 0);
     }
     
+    /**
+     * Metodi tutkii sisältääkö Trie näin alkavan sanan
+     * @param sana
+     * @param solmu
+     * @param i
+     * @param alku
+     * @return true jos sisältää
+     */
+    
+    public boolean sisaltaaNainAlkavanSanan(String sana, Solmu solmu, int i) {
+                 
+        for (Solmu lapsi : solmu.getLapset()) {
+            if (lapsi.arvo() == sana.charAt(i)) {
+                if (i == sana.length() - 1) {
+                    return true;
+                }
+                else {
+                    return sisaltaa(sana, lapsi, i + 1);
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    /**
+     * Metodi tutkii sisältääkö Trie näin alkavan sanan
+     * @param alku
+     * @return true jos sisältää
+     */
+    
     public boolean sisaltaaNainAlkavanSanan(String alku) {
-        return sisaltaa (alku + "$", alkusolmu, 0);
+        return sisaltaaNainAlkavanSanan(alku, alkusolmu, 0);
     }
     
     /**

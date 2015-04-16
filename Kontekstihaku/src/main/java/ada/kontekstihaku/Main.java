@@ -20,11 +20,9 @@ public class Main {
         
         Teksti teksti = new Teksti("kisa kisko kii tuli vesi veri vasta kisa");
         
-        Solmu s = teksti.getTrie().alkusolmu;
-        
-        
-        tulostaSolmut(s);
-        
+        Generoija gen = new Generoija(teksti.getTrie());
+        System.out.println(teksti.getTrie().sisaltaaNainAlkavanSanan("kis"));
+        System.out.println(gen.generoiRandomSanaAlunPerusteella("kis"));
     }
     
     
