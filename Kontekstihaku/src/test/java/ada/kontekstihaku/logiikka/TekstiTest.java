@@ -57,8 +57,6 @@ public class TekstiTest {
         assertEquals(3, teksti.etsiEsiintymia("vai").size());
     }
 
-    @Test
-    public void testSaneet() {
-    }
+    
     
 }

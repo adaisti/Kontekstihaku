@@ -10,6 +10,8 @@ import java.util.Random;
 
 /**
  *
+ * Luokka kokoaa automaattiseen tekstin generoimiseen liittyviä toimintoja
+ * 
  * @author Ada
  */
 public class Generoija {
@@ -19,6 +21,12 @@ public class Generoija {
     public Generoija(Trie trie) {
         this.trie = trie;
     }
+    
+    /**
+     * Metodi generoi sattumanvaraisesti triestä löytyvän sanan annetun alun perusteella
+     * @param alku
+     * @return generoitu sana
+     */
     
     public String generoiRandomSanaAlunPerusteella(String alku) {
         
@@ -39,6 +47,12 @@ public class Generoija {
         
         return sana;
     }
+    
+    /**
+     * Metodi generoi sattumanvaraisen sanan, joka löytyy triestä
+     * @param nykyinen
+     * @return generoitu sana
+     */
     
     public String generoiRandomSana(Solmu nykyinen) {
         Random random = new Random();

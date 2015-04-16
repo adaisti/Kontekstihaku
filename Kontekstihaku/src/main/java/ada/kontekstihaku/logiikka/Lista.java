@@ -25,11 +25,21 @@ public class Lista<T> implements List<T> {
         t = (T[]) new String [0];
     }
     
+    /**
+     * Metodi palauttaa listan koon
+     * @return listan koko
+     */
+    
     @Override
     public int size() {
         return t.length;
     }
 
+    /**
+     * Metodi tutkii onko joukko tyhjä
+     * @return true jos on tyhjä
+     */
+    
     @Override
     public boolean isEmpty() {
         if (t.length == 0) {
@@ -37,6 +47,12 @@ public class Lista<T> implements List<T> {
         }
         return false;
     }
+    
+    /**
+     * Metodi tutkii sisältääkö lista jotain
+     * @param o
+     * @return true jos sisältää
+     */
 
     @Override
     public boolean contains(Object o) {
@@ -48,6 +64,12 @@ public class Lista<T> implements List<T> {
         }
         return false;
     }
+    
+    /**
+     * Metodi lisää listaan annetun objektin
+     * @param e
+     * @return true jos lisääminen onnistui
+     */
     
     @Override
     public boolean add(T e) {
@@ -65,6 +87,12 @@ public class Lista<T> implements List<T> {
         }
         return false;
     }
+    
+    /**
+     * Metodi poistaa objektin listasta
+     * @param o
+     * @return true jos poistaminen onnistui
+     */
 
     @Override
     public boolean remove(Object o) {
@@ -93,6 +121,10 @@ public class Lista<T> implements List<T> {
         return true;
     }
     
+    /**
+     * Metodi tyhjentää listan kaikesta
+     */
+    
     @Override
     public void clear() {
         T[] uusit = (T[]) new String[0];
@@ -100,10 +132,23 @@ public class Lista<T> implements List<T> {
         
     }
     
+    /**
+     * Metodi palauttaa annetussa indeksissä olevan objektin
+     * @param index
+     * @return objekti
+     */
+    
     @Override
     public T get(int index) {
         return t[index];
     }
+    
+    /**
+     * Metodi tutkii missä indeksissä jokin objekti on
+     * 
+     * @param o
+     * @return objektin indeksi
+     */
     
     @Override
     public int indexOf(Object o) {

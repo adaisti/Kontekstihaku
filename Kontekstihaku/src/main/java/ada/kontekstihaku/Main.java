@@ -10,6 +10,8 @@ import ada.kontekstihaku.kayttoliittyma.*;
 
 /**
  *
+ * Main-luokka
+ * 
  * @author Ada
  */
 
