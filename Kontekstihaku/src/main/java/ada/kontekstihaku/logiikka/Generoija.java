@@ -88,7 +88,7 @@ public class Generoija {
         
         String sana = alku;
         
-        sana += generoiYleisinSana(nykyinen);
+        sana += generoiYleisinAloitus(nykyinen);
         
         return sana;
     }
@@ -100,7 +100,7 @@ public class Generoija {
      * @return yleisin sana
      */
     
-    public String generoiYleisinSana(Solmu nykyinen) {
+    public String generoiYleisinAloitus(Solmu nykyinen) {
         String sana = "";
         
         while (!nykyinen.getLapset().isEmpty()) {

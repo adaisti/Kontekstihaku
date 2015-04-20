@@ -92,6 +92,11 @@ public class Solmu {
         return this.yleisyys;
     }
     
+    /**
+     * Metodi palauttaa solmun yleisimmän lapsen
+     * @return yleisin lapsi
+     */
+    
     public Solmu yleisinLapsi() {
         Solmu yleisin = this.getLapset().get(0);
         for (Solmu lapsi : lapset) {

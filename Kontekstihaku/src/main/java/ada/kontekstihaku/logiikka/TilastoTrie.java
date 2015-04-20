@@ -32,7 +32,7 @@ public class TilastoTrie extends Trie {
                 lapsi.lisaaYleisyytta();
                 nykyinen = lapsi;
             }
-            
+            nykyinen.lisaaYleisyytta();
         } else {
             super.lisaaIlmanTarkistusta(sana);
         }
