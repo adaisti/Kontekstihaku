@@ -65,7 +65,6 @@ public class Trie {
      * @param sana
      * @param solmu
      * @param i
-     * @param alku
      * @return true jos sisältää
      */
     
@@ -77,7 +76,7 @@ public class Trie {
                     return true;
                 }
                 else {
-                    return sisaltaa(sana, lapsi, i + 1);
+                    return sisaltaaNainAlkavanSanan(sana, lapsi, i + 1);
                 }
             }
         }
@@ -131,10 +130,15 @@ public class Trie {
     
     public void lisaa(String sana) {
         
-       
         if (sisaltaa(sana, alkusolmu, 0)) {
             return;
         }
+        
+        lisaaIlmanTarkistusta(sana);
+        
+    }
+    
+    public void lisaaIlmanTarkistusta(String sana) {
         
         alkusolmu.lisaaKuuluvienSanojenMaaraa();
         
@@ -162,9 +166,6 @@ public class Trie {
                     
                 }
             }
-            
-           
-            
         }
     }
     

@@ -6,8 +6,6 @@
 package ada.kontekstihaku.logiikka;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  *
@@ -20,11 +18,13 @@ public class Solmu {
     private char arvo;
     public ArrayList<Solmu> lapset;
     private int moneenkoSanaanKuuluu;
+    private int yleisyys;
     
     public Solmu(char arvo) {
         this.arvo = arvo;
         this.lapset = new ArrayList();
         this.moneenkoSanaanKuuluu = 0;
+        this.yleisyys = 0;
     }
     
     /**
@@ -55,6 +55,7 @@ public class Solmu {
     
     public void lisaaKuuluvienSanojenMaaraa() {
         this.moneenkoSanaanKuuluu++;
+        this.lisaaYleisyytta();
     }
     
     /**
@@ -63,6 +64,42 @@ public class Solmu {
     
     public void vahennaKuuluvienSanojenMaaraa() {
         this.moneenkoSanaanKuuluu--;
+        this.vahennaYleisyytta();
+    }
+    
+    /**
+     * Metodi lisää yleisyyttä
+     */
+    
+    public void lisaaYleisyytta() {
+        this.yleisyys++;
+    }
+    
+    /**
+     * Metodi vähentää yleisyyttä
+     */
+    
+    public void vahennaYleisyytta() {
+        this.yleisyys--;
+    }
+    
+    /**
+     * Metodi palauttaa yleisyyden
+     * @return yleisyys
+     */
+    
+    public int yleisyys() {
+        return this.yleisyys;
+    }
+    
+    public Solmu yleisinLapsi() {
+        Solmu yleisin = this.getLapset().get(0);
+        for (Solmu lapsi : lapset) {
+            if (lapsi.yleisyys() > yleisin.yleisyys()) {
+                yleisin = lapsi;
+            }
+        }
+        return yleisin;
     }
     
     /**

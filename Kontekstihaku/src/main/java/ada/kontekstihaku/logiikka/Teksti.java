@@ -21,6 +21,7 @@ public class Teksti {
     private ArrayList<String> saneet;
     private HashSet<String> sananmuodot;
     private Trie trie;
+    private TilastoTrie tt;
         
     
     public Teksti(String teksti) {
@@ -29,8 +30,10 @@ public class Teksti {
         this.saneet = new ArrayList<>();
         this.sananmuodot = new HashSet<>();
         this.trie = new Trie();
+        this.tt = new TilastoTrie();
         jaottele();
         alustaTrie();
+        alustaTilastoTrie();
         
         for (String sane : saneet) {
             sananmuodot.add(sane);
@@ -65,6 +68,30 @@ public class Teksti {
             trie.lisaa(sane);
         }
     }
+    
+    /**
+     * Metodi alustaa tilastotrien
+     */
+    
+    public void alustaTilastoTrie() {
+        for (String sane : saneet) {
+            tt.lisaa(sane);
+        }
+    }
+    
+    /**
+     * Metodi palauttaa tilastotrien
+     * @return tilastotrie
+     */
+    
+    public TilastoTrie getTilastoTrie() {
+        return this.tt;
+    }
+    
+    /**
+     * Metodi palauttaa Trien
+     * @return 
+     */
     
     public Trie getTrie() {
         return this.trie;

@@ -5,7 +5,6 @@
  */
 package ada.kontekstihaku.logiikka;
 
-import ada.kontekstihaku.logiikka.Trie;
 import java.util.Random;
 
 /**
@@ -17,9 +16,11 @@ import java.util.Random;
 public class Generoija {
     
     private Trie trie;
+    private TilastoTrie tt;
     
-    public Generoija(Trie trie) {
+    public Generoija(Trie trie, TilastoTrie tt) {
         this.trie = trie;
+        this.tt = tt;
     }
     
     /**
@@ -58,11 +59,55 @@ public class Generoija {
         Random random = new Random();
         String sana = "";
         
-         while (!nykyinen.getLapset().isEmpty()) {
+        while (!nykyinen.getLapset().isEmpty()) {
             Solmu arvottuLapsi = nykyinen.getLapset().get(random.nextInt(nykyinen.getLapset().size()));
             if (arvottuLapsi.arvo() == '$') break;
             sana += Character.toString(arvottuLapsi.arvo());
             nykyinen = arvottuLapsi;
+        }
+        return sana;
+    }
+    
+    /**
+     * Metodi generoi yleisimmän jotenkin alkavan sanan
+     * @param alku
+     * @return yleisin sana
+     */
+    
+    public String generoiYleisinSanaAlunPerusteella(String alku) {
+        if (!tt.sisaltaaNainAlkavanSanan(alku)) {
+            return "";
+        }
+        
+        Solmu nykyinen = tt.alkusolmu;
+        
+        for (int i = 0; i < alku.length(); i++) {
+            Solmu lapsi = nykyinen.etsiLastenArvoista(alku.charAt(i));
+            nykyinen = lapsi;
+        }
+        
+        String sana = alku;
+        
+        sana += generoiYleisinSana(nykyinen);
+        
+        return sana;
+    }
+    
+    
+    /**
+     * Metodi generoi annetusta solmusta lähtevän yleisimmän sanan(lopun)
+     * @param nykyinen
+     * @return yleisin sana
+     */
+    
+    public String generoiYleisinSana(Solmu nykyinen) {
+        String sana = "";
+        
+        while (!nykyinen.getLapset().isEmpty()) {
+            Solmu yleisinLapsi = nykyinen.yleisinLapsi();
+            if (yleisinLapsi.arvo() == '$') break;
+            sana += Character.toString(yleisinLapsi.arvo());
+            nykyinen = yleisinLapsi;
         }
         return sana;
     }

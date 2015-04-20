@@ -62,10 +62,10 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testAlusta" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testSisaltaa_3args" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testSisaltaa_StringLoytaaJosOn" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testSisaltaa_StringEiLoydaJosEiOle" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testAlusta" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testSisaltaa_3args" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testSisaltaa_StringLoytaaJosOn" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testSisaltaa_StringEiLoydaJosEiOle" time="0.001"/>
   <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testLisaa" time="0"/>
   <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testLisaaMonta" time="0"/>
   <testcase classname="ada.kontekstihaku.logiikka.TrieTest" name="testLisaaHuonoja" time="0"/>
