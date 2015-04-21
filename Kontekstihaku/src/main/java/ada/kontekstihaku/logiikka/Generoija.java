@@ -18,6 +18,11 @@ public class Generoija {
     private Trie trie;
     private TilastoTrie tt;
     
+    public Generoija (Teksti teksti) {
+        this.trie = teksti.getTrie();
+        this.tt = teksti.getTilastoTrie();
+    }
+    
     public Generoija(Trie trie, TilastoTrie tt) {
         this.trie = trie;
         this.tt = tt;
@@ -110,6 +115,10 @@ public class Generoija {
             nykyinen = yleisinLapsi;
         }
         return sana;
+    }
+    
+    public String generoiYleisinAloitus() {
+        return generoiYleisinAloitus(this.trie.alkusolmu);
     }
     
 }

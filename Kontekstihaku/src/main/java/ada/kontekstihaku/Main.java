@@ -32,20 +32,20 @@ public class Main {
 //        System.out.println(gen.generoiYleisinAloitus(teksti.getTilastoTrie().alkusolmu));
 //        System.out.println(gen.generoiYleisinSanaAlunPerusteella("va"));
         
-        Trie trie = new Trie();
-        TilastoTrie tt = new TilastoTrie();
         
-        Lukija lukija = new Lukija("src/main/resources/kotus-sanalista_v1.xml");
-        lukija.lueKotuksenSanatTriehen(trie);
+        Lukija lukija = new Lukija();
+        Teksti teksti = new Teksti(lukija.lueKalevala());
         
-        Generoija gen = new Generoija(trie, tt);
+        Generoija gen = new Generoija(teksti);
         
-        tulostaJokinSana(trie.alkusolmu);
-        
-//        for (int i = 0; i < 10; i++) {
-//            System.out.println(gen.generoiRandomSana(trie.alkusolmu));
-//        }
-        
+        System.out.println(gen.generoiYleisinAloitus());
+        System.out.println(gen.generoiRandomSanaAlunPerusteella("väi"));
+        System.out.println(gen.generoiYleisinSanaAlunPerusteella("väin"));
+        System.out.println(gen.generoiYleisinSanaAlunPerusteella("al"));
+        System.out.println(gen.generoiYleisinSanaAlunPerusteella("kipu"));
+        System.out.println(gen.generoiYleisinSanaAlunPerusteella("ven"));
+        System.out.println(gen.generoiYleisinSanaAlunPerusteella("emo"));
+       
     }
     
     
@@ -53,7 +53,7 @@ public class Main {
         
         if (solmu.arvo() == '$') return;
         
-        System.out.println(solmu.arvo());
+        System.out.println(solmu.arvo() + " " + solmu.moneenkoSanaanKuuluu());
         
         for (Solmu lapsi : solmu.lapset) {
             tulostaSolmut(lapsi);
@@ -63,7 +63,7 @@ public class Main {
     public static void tulostaJokinSana(Solmu solmu) {
         if (solmu.arvo() == '$') return;
         
-        System.out.println(solmu.arvo());
+        System.out.println(solmu.arvo() + solmu.moneenkoSanaanKuuluu());
         
         if (!solmu.getLapset().isEmpty()) {
             tulostaJokinSana(solmu.getLapset().get(0));

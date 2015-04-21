@@ -31,7 +31,6 @@ public class Teksti {
         this.sananmuodot = new HashSet<>();
         this.trie = new Trie();
         this.tt = new TilastoTrie();
-        jaottele();
         alustaTrie();
         alustaTilastoTrie();
         
@@ -49,9 +48,12 @@ public class Teksti {
         String virke = "";
         
         for (int i = 0; i < osat.length; i++) {
-            saneet.add(osat[i]);
+            saneet.add(osat[i].toLowerCase());
             virke += osat[i];
             virke += " ";
+            
+            if (osat[i].length() < 1) continue;
+            
             if (onLopetusmerkki(osat[i].charAt(osat[i].length() - 1))) {
                 virkkeet.add(virke);
                 virke = "";
@@ -59,11 +61,30 @@ public class Teksti {
         }
     }
     
+    public void jaotteleSaneiksi() {
+        String[] osat = this.teksti.split(" ");
+        
+        for (int i = 0; i < osat.length; i++) {
+            String sana = osat[i];
+            sana = sana.toLowerCase();
+            sana = sana.replace(",", "");
+            sana = sana.replace(".", "");
+            sana = sana.replace("!", "");
+            sana = sana.replace("?", "");
+            sana = sana.replace(":", "");
+            sana = sana.replace(";", "");
+            sana = sana.replace("\"", "");
+            this.saneet.add(sana);
+        }
+        
+    }
+    
     /**
      * Metodi alustaa trien
      */
     
     public void alustaTrie() {
+        this.jaotteleSaneiksi();
         for (String sane : saneet) {
             trie.lisaa(sane);
         }

@@ -5,7 +5,9 @@
  */
 package ada.kontekstihaku.tiedostonkasittely;
 
+import ada.kontekstihaku.logiikka.TilastoTrie;
 import ada.kontekstihaku.logiikka.Trie;
+import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -17,6 +19,10 @@ import java.util.Scanner;
 public class Lukija {
     
     private File tiedosto;
+    
+    public Lukija() {
+        
+    }
     
     public Lukija (String tiedostonnimi) {
         this.tiedosto = new File (tiedostonnimi);
@@ -36,20 +42,33 @@ public class Lukija {
     }
     
     public void lueKotuksenSanatTriehen(Trie trie) throws FileNotFoundException {
-        Scanner lukija = new Scanner(this.tiedosto);
+        Scanner lukija = new Scanner(new File ("src/main/resources/kotus-sanalista_v1.xml"));
         
         while (lukija.hasNextLine()) {
             
             String rivi = lukija.nextLine();
-            if (rivi.contains("<")) continue;
-            String[] osat = rivi.split("<");
-            String sanaJaLuokka = osat[1];
-            if (sanaJaLuokka.contains(">")) continue;
-            String[] osat2 = sanaJaLuokka.split(">");
-            String sana = osat2[1];
-            trie.lisaa(sana);
+            rivi = rivi.substring(7);
+            String osat[] = rivi.split("<");
+            String sana = osat[0];
+            trie.lisaaIlmanTarkistusta(sana);
         }
         lukija.close();
+    }
+    
+    public String lueKalevala() throws FileNotFoundException {
+        Scanner lukija = new Scanner(new File ("src/main/resources/kalevala.txt"));
+        
+        String teksti = "";
+        
+        while (lukija.hasNextLine()) {
+            String rivi = lukija.nextLine();
+            if (!((rivi.length() < 35 && rivi.contains("runo")) || rivi.isEmpty())) {
+                teksti += rivi;
+                teksti += " ";
+            }
+        }
+        lukija.close();
+        return teksti;
     }
     
 }

@@ -32,6 +32,8 @@ public class Trie {
     
     public boolean sisaltaa(String sana, Solmu solmu, int i) {
                 
+        if (sana.isEmpty()) return false;
+        
         for (Solmu lapsi : solmu.getLapset()) {
             if (lapsi.arvo() == sana.charAt(i)) {
                 if (i == sana.length() - 1) {
@@ -139,6 +141,8 @@ public class Trie {
     }
     
     public void lisaaIlmanTarkistusta(String sana) {
+        
+        if (sana.isEmpty()) return;
         
         alkusolmu.lisaaKuuluvienSanojenMaaraa();
         
