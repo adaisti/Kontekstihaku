@@ -19,6 +19,7 @@ public class Teksti {
     private String teksti;
     private ArrayList<String> virkkeet;
     private ArrayList<String> saneet;
+    private ArrayList<String> sanaparit;
     private HashSet<String> sananmuodot;
     private Trie trie;
     private TilastoTrie tt;
@@ -28,11 +29,10 @@ public class Teksti {
         this.teksti = teksti;
         this.virkkeet = new ArrayList<>();
         this.saneet = new ArrayList<>();
+        this.sanaparit = new ArrayList();
         this.sananmuodot = new HashSet<>();
         this.trie = new Trie();
         this.tt = new TilastoTrie();
-        alustaTrie();
-        alustaTilastoTrie();
         
         for (String sane : saneet) {
             sananmuodot.add(sane);
@@ -61,32 +61,65 @@ public class Teksti {
         }
     }
     
+    /**
+     * Metodi jakaa tekstin saneiksi
+     */
+    
     public void jaotteleSaneiksi() {
         String[] osat = this.teksti.split(" ");
         
         for (int i = 0; i < osat.length; i++) {
-            String sana = osat[i];
-            sana = sana.toLowerCase();
-            sana = sana.replace(",", "");
-            sana = sana.replace(".", "");
-            sana = sana.replace("!", "");
-            sana = sana.replace("?", "");
-            sana = sana.replace(":", "");
-            sana = sana.replace(";", "");
-            sana = sana.replace("\"", "");
-            this.saneet.add(sana);
+            this.saneet.add(siisti(osat[i]));
         }
         
+    }
+    
+    public void jaotteleSanePareiksi() {
+        String[] osat = this.teksti.split(" ");
+        
+        for (int i = 0; i < osat.length - 1; i++) {
+            this.sanaparit.add(siisti(osat[i]) + " " + siisti(osat[i + 1]));
+        }
+    }
+    
+    
+    /**
+     * Metodi siistii sanan
+     * @param sana 
+     * @return  siistitty
+     */
+    
+    public String siisti(String sana) {
+        sana = sana.toLowerCase();
+        sana = sana.replace(",", "");
+        sana = sana.replace(".", "");
+        sana = sana.replace("!", "");
+        sana = sana.replace("?", "");
+        sana = sana.replace(":", "");
+        sana = sana.replace(";", "");
+        sana = sana.replace("\"", "");
+        return sana;
     }
     
     /**
      * Metodi alustaa trien
      */
     
-    public void alustaTrie() {
+    public void alustaTrieSanoilla() {
         this.jaotteleSaneiksi();
         for (String sane : saneet) {
             trie.lisaa(sane);
+        }
+    }
+    
+    /**
+     * Metodi alustaa trien sanapareilla
+     */
+    
+    public void alustaTrieSanapareilla() {
+        this.jaotteleSanePareiksi();
+        for (String sanapari : sanaparit) {
+            trie.lisaa(sanapari);
         }
     }
     
@@ -197,8 +230,6 @@ public class Teksti {
     
     public ArrayList<String> esiintymat(String sana) {
         
-        // pitäisi vielä laittaa muut ympäristöt kuin välilyöntien ympärillä
-        // miten tehdään isojen ja pienten kirjainten kanssa, riittääkö tämä?
         sana = sana.toLowerCase();
         String haettava = " ";
         haettava += sana;

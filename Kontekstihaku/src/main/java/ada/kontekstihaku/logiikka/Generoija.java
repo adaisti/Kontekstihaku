@@ -17,8 +17,10 @@ public class Generoija {
     
     private Trie trie;
     private TilastoTrie tt;
+    private Teksti teksti;
     
     public Generoija (Teksti teksti) {
+        this.teksti = teksti;
         this.trie = teksti.getTrie();
         this.tt = teksti.getTilastoTrie();
     }
@@ -117,8 +119,102 @@ public class Generoija {
         return sana;
     }
     
+    /**
+     * Metodi generoi yleisimmän aloituksen koko triessä
+     * @return sana tai aloitus
+     */
+    
     public String generoiYleisinAloitus() {
         return generoiYleisinAloitus(this.trie.alkusolmu);
     }
+    
+    /**
+     * Metodi generoi todennäköistä tekstiä
+     * @param alku
+     * @param sanoja
+     * @return tekstiä
+     */
+    
+    public String generoiTodennakoistaTekstia(String alku, int sanoja) {
+        this.teksti.alustaTrieSanapareilla();
+        String sanapari = this.generoiYleisinSanaAlunPerusteella(alku);
+        
+        if (sanapari.isEmpty()) {
+            sanapari = generoiRandomSanaAlunPerusteella(alku);
+        }
+        
+        String luotavaTeksti = "";
+        Solmu nykyinen = trie.alkusolmu;
+        String nykyinenSana = "";
+        int i = 0;
+        
+        while(i < sanoja) {
+            
+            for (int j = 0; j < sanapari.length(); j++) {
+                
+                Solmu lapsi = nykyinen.etsiLastenArvoista(sanapari.charAt(j));
+                luotavaTeksti += Character.toString(lapsi.arvo());
+                nykyinen = lapsi;
+                
+                if (sanapari.charAt(j) == ' ') {
+                    j++;
+                    for (int k = j; k < sanapari.length(); k++) {
+                        lapsi = nykyinen.etsiLastenArvoista(sanapari.charAt(k));
+                        nykyinenSana += Character.toString(lapsi.arvo());
+                        nykyinen = lapsi;
+                        j++;
+                    }
+                }
+            }
+            sanapari = this.generoiYleisinSanaAlunPerusteella(nykyinenSana + " ");
+            
+            if (sanapari.isEmpty()) {
+                sanapari = generoiRandomSanaAlunPerusteella(nykyinenSana + " ");
+            }
+            
+            i++;
+            nykyinenSana = "";
+            nykyinen = trie.alkusolmu;
+        }  
+        return luotavaTeksti;
+    }
+    
+    public String generoiRandomTekstia(String alku, int sanoja) {
+        
+        this.teksti.alustaTrieSanapareilla();
+        String sanapari = this.generoiRandomSanaAlunPerusteella(alku);
+        String luotavaTeksti = "";
+        Solmu nykyinen = trie.alkusolmu;
+        String nykyinenSana = "";
+        int i = 0;
+        
+        while(i < sanoja) {
+            
+            for (int j = 0; j < sanapari.length(); j++) {
+                
+                Solmu lapsi = nykyinen.etsiLastenArvoista(sanapari.charAt(j));
+                luotavaTeksti += Character.toString(lapsi.arvo());
+                nykyinen = lapsi;
+                
+                if (sanapari.charAt(j) == ' ') {
+                    j++;
+                    for (int k = j; k < sanapari.length(); k++) {
+                        lapsi = nykyinen.etsiLastenArvoista(sanapari.charAt(k));
+                        nykyinenSana += Character.toString(lapsi.arvo());
+                        nykyinen = lapsi;
+                        j++;
+                    }
+                }
+            }
+            sanapari = this.generoiRandomSanaAlunPerusteella(nykyinenSana + " ");
+            i++;
+            nykyinenSana = "";
+            nykyinen = trie.alkusolmu;
+        }  
+        return luotavaTeksti;
+    }
+    
+    
+    
     
 }

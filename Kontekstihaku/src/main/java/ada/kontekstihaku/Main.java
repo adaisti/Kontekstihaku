@@ -35,16 +35,25 @@ public class Main {
         
         Lukija lukija = new Lukija();
         Teksti teksti = new Teksti(lukija.lueKalevala());
-        
+//        teksti.alustaTrieSanoilla();
+//        
         Generoija gen = new Generoija(teksti);
+//        
+//        System.out.println(gen.generoiYleisinAloitus());
+//        System.out.println(gen.generoiRandomSanaAlunPerusteella("väi"));
+//        System.out.println(gen.generoiYleisinSanaAlunPerusteella("väin"));
+//        System.out.println(gen.generoiYleisinSanaAlunPerusteella("al"));
+//        System.out.println(gen.generoiYleisinSanaAlunPerusteella("kipu"));
+//        System.out.println(gen.generoiYleisinSanaAlunPerusteella("ven"));
+//        System.out.println(gen.generoiYleisinSanaAlunPerusteella("emo"));
         
-        System.out.println(gen.generoiYleisinAloitus());
-        System.out.println(gen.generoiRandomSanaAlunPerusteella("väi"));
-        System.out.println(gen.generoiYleisinSanaAlunPerusteella("väin"));
-        System.out.println(gen.generoiYleisinSanaAlunPerusteella("al"));
-        System.out.println(gen.generoiYleisinSanaAlunPerusteella("kipu"));
-        System.out.println(gen.generoiYleisinSanaAlunPerusteella("ven"));
-        System.out.println(gen.generoiYleisinSanaAlunPerusteella("emo"));
+//        System.out.println(gen.generoiRandomTekstia("a", 8));
+//         System.out.println(gen.generoiRandomTekstia("y", 8));
+//          System.out.println(gen.generoiRandomTekstia("k", 8));
+//           System.out.println(gen.generoiRandomTekstia("e", 8));
+//            System.out.println(gen.generoiRandomTekstia("v", 8));
+        
+        System.out.println(gen.generoiTodennakoistaTekstia("h", 8));
        
     }
     
