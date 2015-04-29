@@ -18,11 +18,15 @@ public class Generoija {
     private Trie trie;
     private TilastoTrie tt;
     private Teksti teksti;
+    private Trie pariTrie;
+    private TilastoTrie paritt;
     
     public Generoija (Teksti teksti) {
         this.teksti = teksti;
         this.trie = teksti.getTrie();
         this.tt = teksti.getTilastoTrie();
+        this.pariTrie = teksti.getPariTrie();
+        this.paritt = teksti.getPariTt();
     }
     
     public Generoija(Trie trie, TilastoTrie tt) {
@@ -30,13 +34,18 @@ public class Generoija {
         this.tt = tt;
     }
     
+    public String generoiRandomSanaAlunPerusteella(String alku) {
+        return generoiRandomSanaAlunPerusteella(alku, trie);
+    }
+    
+    
     /**
      * Metodi generoi sattumanvaraisesti triestä löytyvän sanan annetun alun perusteella
      * @param alku
      * @return generoitu sana
      */
     
-    public String generoiRandomSanaAlunPerusteella(String alku) {
+    public String generoiRandomSanaAlunPerusteella(String alku, Trie trie) {
         
         if (!trie.sisaltaaNainAlkavanSanan(alku)) {
             return "";
@@ -75,13 +84,18 @@ public class Generoija {
         return sana;
     }
     
+    public String generoiYleisinSanaAlunPerusteella(String alku) {
+        return generoiYleisinSanaAlunPerusteella(alku, tt);
+    }
+    
     /**
      * Metodi generoi yleisimmän jotenkin alkavan sanan
      * @param alku
+     * @param tt
      * @return yleisin sana
      */
     
-    public String generoiYleisinSanaAlunPerusteella(String alku) {
+    public String generoiYleisinSanaAlunPerusteella(String alku, TilastoTrie tt) {
         if (!tt.sisaltaaNainAlkavanSanan(alku)) {
             return "";
         }
@@ -125,7 +139,7 @@ public class Generoija {
      */
     
     public String generoiYleisinAloitus() {
-        return generoiYleisinAloitus(this.trie.alkusolmu);
+        return generoiYleisinAloitus(this.tt.alkusolmu);
     }
     
     /**
@@ -137,14 +151,14 @@ public class Generoija {
     
     public String generoiTodennakoistaTekstia(String alku, int sanoja) {
         this.teksti.alustaTrieSanapareilla();
-        String sanapari = this.generoiYleisinSanaAlunPerusteella(alku);
+        String sanapari = this.generoiYleisinSanaAlunPerusteella(alku, paritt);
         
         if (sanapari.isEmpty()) {
             sanapari = generoiRandomSanaAlunPerusteella(alku);
         }
         
         String luotavaTeksti = "";
-        Solmu nykyinen = trie.alkusolmu;
+        Solmu nykyinen = paritt.alkusolmu;
         String nykyinenSana = "";
         int i = 0;
         
@@ -169,12 +183,13 @@ public class Generoija {
             sanapari = this.generoiYleisinSanaAlunPerusteella(nykyinenSana + " ");
             
             if (sanapari.isEmpty()) {
-                sanapari = generoiRandomSanaAlunPerusteella(nykyinenSana + " ");
+                // voisi tilastoida milloin tänne aina mennään ja miksi
+                sanapari = generoiRandomSanaAlunPerusteella(nykyinenSana + " ", paritt);
             }
             
             i++;
             nykyinenSana = "";
-            nykyinen = trie.alkusolmu;
+            nykyinen = paritt.alkusolmu;
         }  
         return luotavaTeksti;
     }
@@ -182,9 +197,9 @@ public class Generoija {
     public String generoiRandomTekstia(String alku, int sanoja) {
         
         this.teksti.alustaTrieSanapareilla();
-        String sanapari = this.generoiRandomSanaAlunPerusteella(alku);
+        String sanapari = this.generoiRandomSanaAlunPerusteella(alku, pariTrie);
         String luotavaTeksti = "";
-        Solmu nykyinen = trie.alkusolmu;
+        Solmu nykyinen = pariTrie.alkusolmu;
         String nykyinenSana = "";
         int i = 0;
         
@@ -206,10 +221,10 @@ public class Generoija {
                     }
                 }
             }
-            sanapari = this.generoiRandomSanaAlunPerusteella(nykyinenSana + " ");
+            sanapari = this.generoiRandomSanaAlunPerusteella(nykyinenSana + " ", pariTrie);
             i++;
             nykyinenSana = "";
-            nykyinen = trie.alkusolmu;
+            nykyinen = pariTrie.alkusolmu;
         }  
         return luotavaTeksti;
     }

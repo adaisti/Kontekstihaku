@@ -22,7 +22,9 @@ public class Teksti {
     private ArrayList<String> sanaparit;
     private HashSet<String> sananmuodot;
     private Trie trie;
+    private Trie paritrie;
     private TilastoTrie tt;
+    private TilastoTrie paritt;
         
     
     public Teksti(String teksti) {
@@ -32,7 +34,9 @@ public class Teksti {
         this.sanaparit = new ArrayList();
         this.sananmuodot = new HashSet<>();
         this.trie = new Trie();
+        this.paritrie = new Trie();
         this.tt = new TilastoTrie();
+        this.paritt = new TilastoTrie();
         
         for (String sane : saneet) {
             sananmuodot.add(sane);
@@ -109,6 +113,7 @@ public class Teksti {
         this.jaotteleSaneiksi();
         for (String sane : saneet) {
             trie.lisaa(sane);
+            tt.lisaa(sane);
         }
     }
     
@@ -119,19 +124,12 @@ public class Teksti {
     public void alustaTrieSanapareilla() {
         this.jaotteleSanePareiksi();
         for (String sanapari : sanaparit) {
-            trie.lisaa(sanapari);
+            paritrie.lisaa(sanapari);
+            paritt.lisaa(sanapari);
         }
     }
     
-    /**
-     * Metodi alustaa tilastotrien
-     */
     
-    public void alustaTilastoTrie() {
-        for (String sane : saneet) {
-            tt.lisaa(sane);
-        }
-    }
     
     /**
      * Metodi palauttaa tilastotrien
@@ -149,6 +147,14 @@ public class Teksti {
     
     public Trie getTrie() {
         return this.trie;
+    }
+    
+    public TilastoTrie getPariTt() {
+        return this.paritt;
+    }
+    
+    public Trie getPariTrie() {
+        return this.paritrie;
     }
     
     /**
@@ -248,12 +254,11 @@ public class Teksti {
      */
     
     public ArrayList<String> etsiEsiintymia(String sana) {
+        jaottele();
         ArrayList<String> esiintymat = new ArrayList();
         for (String virke : this.virkkeet) {
             if (virke.contains(sana)) {
                 esiintymat.add(virke);
-                            System.out.println(virke);
-
             }
         }
         return esiintymat;
