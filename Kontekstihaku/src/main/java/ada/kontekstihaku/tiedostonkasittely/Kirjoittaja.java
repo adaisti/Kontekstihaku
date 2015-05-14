@@ -27,4 +27,8 @@ public class Kirjoittaja {
         kirjoittaja.close();
     }
     
+    public File tiedosto() {
+        return this.tiedosto;
+    }
+    
 }

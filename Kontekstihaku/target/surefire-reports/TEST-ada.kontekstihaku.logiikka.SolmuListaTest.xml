@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="ada.kontekstihaku.logiikka.GeneroijaTest" time="0.462" errors="0" skipped="0">
+<testsuite tests="11" failures="0" name="ada.kontekstihaku.logiikka.SolmuListaTest" time="0.055" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -62,11 +62,15 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ada.kontekstihaku.logiikka.GeneroijaTest" name="generoiSanaAineistosta" time="0.028"/>
-  <testcase classname="ada.kontekstihaku.logiikka.GeneroijaTest" name="generoiMontaSanaaAineistosta" time="0.004"/>
-  <testcase classname="ada.kontekstihaku.logiikka.GeneroijaTest" name="generoiSanaAlullaMit\u00E4EiEsiinny" time="0.007"/>
-  <testcase classname="ada.kontekstihaku.logiikka.GeneroijaTest" name="generoiSanojaAluillaMit\u00E4EiEsiinny" time="0.014"/>
-  <testcase classname="ada.kontekstihaku.logiikka.GeneroijaTest" name="generoiSanaPidemm\u00E4ll\u00E4Alulla" time="0.006"/>
-  <testcase classname="ada.kontekstihaku.logiikka.GeneroijaTest" name="generoiSanojaPidemmill\u00E4Aluilla" time="0.009"/>
-  <testcase classname="ada.kontekstihaku.logiikka.GeneroijaTest" name="generoiSanojaPitkill\u00E4AluillaMit\u00E4EiOle" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testSize" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testIsEmptyToimiiTaydella" time="0.004"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testClear" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testAdd" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testGet" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testIsEmptyOnTyhja" time="0.002"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testContainsKunSisaltaa" time="0.004"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testContainsKunEiSisalla" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testRemove" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testIndexOf" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuListaTest" name="testToString" time="0"/>
 </testsuite>
