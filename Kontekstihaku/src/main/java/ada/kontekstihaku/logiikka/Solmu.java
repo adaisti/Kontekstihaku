@@ -5,7 +5,6 @@
  */
 package ada.kontekstihaku.logiikka;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -16,13 +15,13 @@ import java.util.ArrayList;
 public class Solmu {
     
     private char arvo;
-    public ArrayList<Solmu> lapset;
+    public SolmuLista<Solmu> lapset;
     private int moneenkoSanaanKuuluu;
     private int yleisyys;
     
     public Solmu(char arvo) {
         this.arvo = arvo;
-        this.lapset = new ArrayList();
+        this.lapset = new SolmuLista();
         this.moneenkoSanaanKuuluu = 0;
         this.yleisyys = 0;
     }
@@ -99,7 +98,8 @@ public class Solmu {
     
     public Solmu yleisinLapsi() {
         Solmu yleisin = this.getLapset().get(0);
-        for (Solmu lapsi : lapset) {
+        for (int i = 0; i < lapset.size(); i++) {
+            Solmu lapsi = lapset.get(i);
             if (lapsi.yleisyys() > yleisin.yleisyys()) {
                 yleisin = lapsi;
             }
@@ -123,9 +123,9 @@ public class Solmu {
      */
     
     public Solmu etsiLapsi(Solmu lapsi) {
-        for (Solmu listalapsi : lapset) {
-            if (listalapsi.equals(lapsi)) {
-                return listalapsi;
+        for (int i = 0; i < lapset.size(); i++) {
+            if (lapset.get(i).equals(lapsi)) {
+                return lapset.get(i);
             }
         }
         return null;
@@ -136,20 +136,22 @@ public class Solmu {
      * @return lapset
      */
     
-    public ArrayList<Solmu> getLapset() {
+    public SolmuLista<Solmu> getLapset() {
         return this.lapset;
     }
     
     /**
      * 
+     * Metodi etsii Solmun lapsista sen, jonka arco on annettu merkki
+     * 
      * @param merkki
-     * @return 
+     * @return lapsi jos löytyy, muuten null
      */
     
     public Solmu etsiLastenArvoista(char merkki) {
-        for (Solmu lapsi : lapset) {
-            if (lapsi.arvo() == merkki) {
-                return lapsi;
+        for (int i = 0; i < lapset.size(); i++) {
+            if (lapset.get(i).arvo() == merkki) {
+                return lapset.get(i);
             }
         }
         return null;

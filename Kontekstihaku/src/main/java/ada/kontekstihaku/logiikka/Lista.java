@@ -80,7 +80,12 @@ public class Lista<T> implements List<T> {
         
         if (e instanceof String) {
             String uusi = (String) e;
-            String[] uusit = new String[t.length];
+            String[] uusit = new String[t.length + 1];
+            
+            for (int i = 0; i < t.length; i++) {
+                uusit[i] = (String) t[i];
+            }
+            
             uusit[t.length] = uusi;
             t = (T[]) uusit;
             return true;
@@ -106,7 +111,7 @@ public class Lista<T> implements List<T> {
         }
         
         int indeksi = indexOf(o);
-        String[] uusit = new String[t.length - 2];
+        String[] uusit = new String[t.length - 1];
         
         for (int i = 0; i < indeksi; i++) {
             uusit[i] = (String) t[i];
@@ -164,10 +169,19 @@ public class Lista<T> implements List<T> {
     }
     
     @Override
-    public Iterator<T> iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString() {
+        String lista = "[";
+        lista += t[0];
+        
+        for (int i = 1; i < t.length; i++) {
+            lista += ", ";
+            lista += t[i];
+        }
+        
+        lista += "]";
+        return lista;
     }
-
+    
     @Override
     public Object[] toArray() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -236,6 +250,22 @@ public class Lista<T> implements List<T> {
     @Override
     public List<T> subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator() {
+
+            @Override
+            public boolean hasNext() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Object next() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
     }
 
    

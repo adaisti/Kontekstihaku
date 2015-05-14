@@ -21,7 +21,6 @@ public class SolmuTest {
     
     @Before
     public void setUp() {
-        
         solmu = new Solmu('A');
     }
 
@@ -34,9 +33,10 @@ public class SolmuTest {
 
     @Test
     public void testLisaaKuuluvienSanojenMaaraa() {
-        Solmu uus = new Solmu('B');
-        solmu.lisaaLapsi(uus);
-        solmu.lisaaLapsi(new Solmu('$'));
+//        Solmu uus = new Solmu('B');
+//        solmu.lisaaLapsi(uus);
+//        solmu.lisaaLapsi(new Solmu('$'));
+        solmu.lisaaKuuluvienSanojenMaaraa();
         assertEquals(1, solmu.moneenkoSanaanKuuluu());
     }
 

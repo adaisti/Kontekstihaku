@@ -42,6 +42,7 @@ public class Generoija {
     /**
      * Metodi generoi sattumanvaraisesti triestä löytyvän sanan annetun alun perusteella
      * @param alku
+     * @param trie
      * @return generoitu sana
      */
     
@@ -183,7 +184,6 @@ public class Generoija {
             sanapari = this.generoiYleisinSanaAlunPerusteella(nykyinenSana + " ");
             
             if (sanapari.isEmpty()) {
-                // voisi tilastoida milloin tänne aina mennään ja miksi
                 sanapari = generoiRandomSanaAlunPerusteella(nykyinenSana + " ", paritt);
             }
             
@@ -230,6 +230,12 @@ public class Generoija {
     }
     
     
+    public boolean onVokaali (char merkki) {
+        if (merkki == 'a' | merkki == 'e' | merkki == 'i' | merkki == 'o' | merkki == 'u' | merkki == 'y' | merkki == 'ä' | merkki == 'ö') {
+            return true;
+        }
+        return false;
+    }
     
     
 }

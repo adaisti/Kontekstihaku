@@ -24,6 +24,11 @@ public class ListaTest {
 
     @Test
     public void testSize() {
+        Lista<String> l = new Lista();
+        l.add("a");
+        l.add("b");
+        l.add("c");
+        assertEquals(3, l.size());
     }
 
     @Test
@@ -101,6 +106,14 @@ public class ListaTest {
         l.add("ruoka");
         l.add("ruoka");
         assertEquals("ruoka", l.get(1));
+    }
+    
+    @Test
+    public void toStringToimii() {
+        Lista<String> l = new Lista();
+        l.add("ruoka");
+        l.add("nam");
+        assertEquals("[ruoka, nam]", l.toString());
     }
     
 }

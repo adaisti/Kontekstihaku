@@ -44,12 +44,12 @@ public class TekstiTest {
 
     @Test
     public void testEsiintymatKunEiEsiinny() {
-        assertEquals(0, teksti.esiintymat("hamsteri").size());
+        assertEquals(0, teksti.etsiEsiintymia("hamsteri").size());
     }
 
     @Test
     public void testEsiintymatLoytaaTasanOikeanMaaran() {
-        assertEquals(2, teksti.esiintymat("vai").size());
+        assertEquals(2, teksti.etsiEsiintymia("vai ").size());
     }
 
     @Test

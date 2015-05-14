@@ -27,7 +27,7 @@ public class Main {
         Kayttoliittyma kl = new Kayttoliittyma(skanneri);
         
         kl.kaynnista();
-       
+        
     }
     
     

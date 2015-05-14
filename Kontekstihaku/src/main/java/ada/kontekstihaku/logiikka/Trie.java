@@ -5,7 +5,6 @@
  */
 package ada.kontekstihaku.logiikka;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -33,8 +32,8 @@ public class Trie {
     public boolean sisaltaa(String sana, Solmu solmu, int i) {
                 
         if (sana.isEmpty()) return false;
-        
-        for (Solmu lapsi : solmu.getLapset()) {
+        for (int j = 0; j < solmu.getLapset().size(); j++) {
+            Solmu lapsi = solmu.getLapset().get(j);
             if (lapsi.arvo() == sana.charAt(i)) {
                 if (i == sana.length() - 1) {
                     if (lapsi.etsiLastenArvoista('$') != null) {
@@ -72,7 +71,8 @@ public class Trie {
     
     public boolean sisaltaaNainAlkavanSanan(String sana, Solmu solmu, int i) {
                  
-        for (Solmu lapsi : solmu.getLapset()) {
+        for (int j = 0; j < solmu.getLapset().size(); j++) {
+            Solmu lapsi = solmu.getLapset().get(j);
             if (lapsi.arvo() == sana.charAt(i)) {
                 if (i == sana.length() - 1) {
                     return true;

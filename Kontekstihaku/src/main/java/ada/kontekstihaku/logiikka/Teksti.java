@@ -5,8 +5,6 @@
  */
 package ada.kontekstihaku.logiikka;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 
 /**
  *
@@ -17,10 +15,9 @@ import java.util.HashSet;
 public class Teksti {
     
     private String teksti;
-    private ArrayList<String> virkkeet;
-    private ArrayList<String> saneet;
-    private ArrayList<String> sanaparit;
-    private HashSet<String> sananmuodot;
+    private Lista<String> virkkeet;
+    private Lista<String> saneet;
+    private Lista<String> sanaparit;
     private Trie trie;
     private Trie paritrie;
     private TilastoTrie tt;
@@ -29,18 +26,14 @@ public class Teksti {
     
     public Teksti(String teksti) {
         this.teksti = teksti;
-        this.virkkeet = new ArrayList<>();
-        this.saneet = new ArrayList<>();
-        this.sanaparit = new ArrayList();
-        this.sananmuodot = new HashSet<>();
+        this.virkkeet = new Lista();
+        this.saneet = new Lista();
+        this.sanaparit = new Lista();
         this.trie = new Trie();
         this.paritrie = new Trie();
         this.tt = new TilastoTrie();
         this.paritt = new TilastoTrie();
         
-        for (String sane : saneet) {
-            sananmuodot.add(sane);
-        }
     }
     
     /**
@@ -111,7 +104,8 @@ public class Teksti {
     
     public void alustaTrieSanoilla() {
         this.jaotteleSaneiksi();
-        for (String sane : saneet) {
+        for (int i = 0; i < saneet.size(); i++) {
+            String sane = saneet.get(i);
             trie.lisaa(sane);
             tt.lisaa(sane);
         }
@@ -123,7 +117,8 @@ public class Teksti {
     
     public void alustaTrieSanapareilla() {
         this.jaotteleSanePareiksi();
-        for (String sanapari : sanaparit) {
+        for (int i = 0; i < sanaparit.size(); i++) {
+            String sanapari = sanaparit.get(i);
             paritrie.lisaa(sanapari);
             paritt.lisaa(sanapari);
         }
@@ -163,11 +158,12 @@ public class Teksti {
      * @return lista 2 sanan kokoisista konteksteista
      */
     
-    public ArrayList<String> peruskontekstit(String sananmuoto) {
-        ArrayList<String> kontekstit = new ArrayList();
+    public Lista<String> peruskontekstit(String sananmuoto) {
+        Lista<String> kontekstit = new Lista();
         String konteksti = "";
         
-        for (String esiintyma : esiintymat(sananmuoto)) {
+        for (int j = 0; j < esiintymat(sananmuoto).size(); j++) {
+            String esiintyma = esiintymat(sananmuoto).get(j);
             String osat[] = esiintyma.split(" ");
             
             for (int i = 0; i < osat.length; i++) {
@@ -198,11 +194,12 @@ public class Teksti {
      * @return molemmille sanoille yhteiset peruskontekstit
      */
     
-    public ArrayList<String> yhteisetPeruskontekstit(String sana1, String sana2) {
-        ArrayList<String> yhteisetKontekstit = new ArrayList();
-        ArrayList<String> ekanPeruskontekstit = peruskontekstit(sana1);
-        ArrayList<String> tokanPeruskontekstit = peruskontekstit(sana2);
-        for (String konteksti : ekanPeruskontekstit) {
+    public Lista<String> yhteisetPeruskontekstit(String sana1, String sana2) {
+        Lista<String> yhteisetKontekstit = new Lista();
+        Lista<String> ekanPeruskontekstit = peruskontekstit(sana1);
+        Lista<String> tokanPeruskontekstit = peruskontekstit(sana2);
+        for (int i = 0; i < ekanPeruskontekstit.size(); i++) {
+            String konteksti = ekanPeruskontekstit.get(i);
             if (tokanPeruskontekstit.contains(konteksti)) {
                 yhteisetKontekstit.add(konteksti);
             }
@@ -217,14 +214,28 @@ public class Teksti {
      * @return samoissa yhteyksissä esiintyneet sanat
      */
     
-    public ArrayList<String> samankaltaisiaSanoja(String sana) {
-        ArrayList<String> samankaltaiset = new ArrayList();
-        for (String sananmuoto : this.sananmuodot) {
+    public Lista<String> samankaltaisiaSanoja(String sana) {
+        
+        Lista<String> muodot = this.sananmuodot();
+        
+        Lista<String> samankaltaiset = new Lista();
+        for (int i = 0; i < muodot.size(); i++) {
+            String sananmuoto = muodot.get(i);
             if (!yhteisetPeruskontekstit(sana, sananmuoto).isEmpty()) {
                 samankaltaiset.add(sananmuoto);
             }
         }
         return samankaltaiset;
+    }
+    
+    public Lista<String> sananmuodot() {
+        Lista<String> sananmuodot = new Lista();
+        for (int i = 0; i < saneet.size(); i++) {
+            if (!sananmuodot.contains(saneet.get(i))) {
+                sananmuodot.add(saneet.get(i));
+            }
+        }
+        return sananmuodot;
     }
     
     
@@ -234,14 +245,14 @@ public class Teksti {
      * @return 
      */
     
-    public ArrayList<String> esiintymat(String sana) {
+    public Lista<String> esiintymat(String sana) {
         
         sana = sana.toLowerCase();
         String haettava = " ";
         haettava += sana;
         haettava += " ";
         if (!this.saneet.contains(sana)) {
-            return new ArrayList();
+            return new Lista();
         } else {
             return etsiEsiintymia(haettava);
         }
@@ -253,11 +264,14 @@ public class Teksti {
      * @return lista virkkeistä, joissa esiintyy
      */
     
-    public ArrayList<String> etsiEsiintymia(String sana) {
+    public Lista<String> etsiEsiintymia(String sana) {
         jaottele();
-        ArrayList<String> esiintymat = new ArrayList();
-        for (String virke : this.virkkeet) {
+        Lista<String> esiintymat = new Lista();
+        for (int i = 0; i < this.virkkeet.size(); i++) {
+            String virke = this.virkkeet.get(i);
+            System.out.println(virke);
             if (virke.contains(sana)) {
+                System.out.println("löytyi!");
                 esiintymat.add(virke);
             }
         }
@@ -278,11 +292,11 @@ public class Teksti {
     }
     
    
-    public ArrayList<String> virkkeet() {
+    public Lista<String> virkkeet() {
         return this.virkkeet;
     }
     
-    public ArrayList<String> saneet() {
+    public Lista<String> saneet() {
         return this.saneet;
     }
 }
