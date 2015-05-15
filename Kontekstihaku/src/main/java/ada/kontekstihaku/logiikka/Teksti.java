@@ -166,6 +166,8 @@ public class Teksti {
             String esiintyma = esiintymat(sananmuoto).get(j);
             String osat[] = esiintyma.split(" ");
             
+            if (osat.length < 1) continue;
+            
             for (int i = 0; i < osat.length; i++) {
                 if (osat[i].equals(sananmuoto)) {
                     if (i > 0 && i < osat.length - 1) {
@@ -228,6 +230,11 @@ public class Teksti {
         return samankaltaiset;
     }
     
+    /**
+     * Metodi etsii kaikki eri sananmuodot
+     * @return sananmuodot
+     */
+    
     public Lista<String> sananmuodot() {
         Lista<String> sananmuodot = new Lista();
         for (int i = 0; i < saneet.size(); i++) {
@@ -271,7 +278,6 @@ public class Teksti {
             String virke = this.virkkeet.get(i);
             System.out.println(virke);
             if (virke.contains(sana)) {
-                System.out.println("löytyi!");
                 esiintymat.add(virke);
             }
         }

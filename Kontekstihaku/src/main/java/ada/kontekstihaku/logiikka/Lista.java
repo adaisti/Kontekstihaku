@@ -170,6 +170,9 @@ public class Lista<T> implements List<T> {
     
     @Override
     public String toString() {
+        
+        if (t.length == 0) return "[]";
+        
         String lista = "[";
         lista += t[0];
         
