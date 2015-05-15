@@ -6,7 +6,6 @@
 package ada.kontekstihaku;
 
 import ada.kontekstihaku.logiikka.*;
-import ada.kontekstihaku.logiikka.Generoija;
 import ada.kontekstihaku.kayttoliittyma.*;
 import ada.kontekstihaku.tiedostonkasittely.*;
 import java.io.FileNotFoundException;
@@ -23,10 +22,18 @@ public class Main {
     
     public static void main(String[] args) throws FileNotFoundException {
         
-        Scanner skanneri = new Scanner(System.in);
-        Kayttoliittyma kl = new Kayttoliittyma(skanneri);
+//        Scanner skanneri = new Scanner(System.in);
+//        Kayttoliittyma kl = new Kayttoliittyma(skanneri);
+//        
+//        kl.kaynnista();
         
-        kl.kaynnista();
+        
+        Lukija l = new Lukija();
+        Teksti t = new Teksti(l.lueKalevala());
+        Generoija g = new Generoija(t);
+        
+        g.generoiTodennakoistaTekstia("a", 100000);
+        
         
     }
     
