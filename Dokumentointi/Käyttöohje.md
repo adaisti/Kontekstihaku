@@ -2,6 +2,6 @@ Adan tekstintarkasteluohjelma on varsin helppokäyttöinen ja kätevä erilaiste
 
 Ohjelma käynnistettäessä käyttäjä saa aluksi päättää, kumpaa lähdetiedostoa haluaa tarkastella. Kotuksen sanalistan avulla voidaan tutkia sattumanvaraisten sanojen generointia annetun alun perusteella, mikä voi olla paitsi hauskaa myös kiinnostavaa esimerkiksi erilaisia sanapelejä pelatessa (esimerkiksi Scrabble, laiva on lastattu, maa-kaupunki-joki, sanaristikot, tavuristikot, aloitustavun keksimispeli #ohjusputka-irkkikanavalla).
 
-Kalevala puolestaan demonstroi paremmin muiden ohjelman tarjoamien metodien käyttöä. Kalevalan perusteella voidaan esimerkiksi generoida yleisiä tai sattumanvaraisia sanoja sekä eripituisia Kalevala-tyylisiä tekstejä, joko mahdollisimman yleisiä kirjainyhdistelmiltään tai satunnaisesti. Lisäksi Kalevalan tutkiminen mahdollistaa samankaltaisissa konteksteissa esiintyvien sanojen hakemisen.
+Kalevala puolestaan demonstroi paremmin muiden ohjelman tarjoamien metodien käyttöä. Kalevalan perusteella voidaan esimerkiksi generoida yleisiä tai sattumanvaraisia sanoja sekä eripituisia Kalevala-tyylisiä tekstejä, joko mahdollisimman yleisiä kirjainyhdistelmiltään tai satunnaisesti. 
 
 Ohjelmaa voi siis vapaasti käyttää tekstikäyttöliittymän antamien ohjeiden mukaisesti. Tyhjän rivin antaminen eli pelkän enter-näppäimen painaminen lopettaa ohjelman toiminnan.
