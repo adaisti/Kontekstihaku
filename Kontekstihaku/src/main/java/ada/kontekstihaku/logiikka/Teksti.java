@@ -166,8 +166,6 @@ public class Teksti {
             String esiintyma = esiintymat(sananmuoto).get(j);
             String osat[] = esiintyma.split(" ");
             
-            if (osat.length < 1) continue;
-            
             for (int i = 0; i < osat.length; i++) {
                 if (osat[i].equals(sananmuoto)) {
                     if (i > 0 && i < osat.length - 1) {

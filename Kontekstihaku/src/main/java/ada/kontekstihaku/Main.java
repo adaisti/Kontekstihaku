@@ -22,17 +22,11 @@ public class Main {
     
     public static void main(String[] args) throws FileNotFoundException {
         
-//        Scanner skanneri = new Scanner(System.in);
-//        Kayttoliittyma kl = new Kayttoliittyma(skanneri);
-//        
-//        kl.kaynnista();
+        Scanner skanneri = new Scanner(System.in);
+        Kayttoliittyma kl = new Kayttoliittyma(skanneri);
         
+        kl.kaynnista();
         
-        Lukija l = new Lukija();
-        Teksti t = new Teksti(l.lueKalevala());
-        Generoija g = new Generoija(t);
-        
-        g.generoiTodennakoistaTekstia("a", 100000);
         
         
     }

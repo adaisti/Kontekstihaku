@@ -88,11 +88,11 @@ public class Kayttoliittyma {
             case "6":
                 satunnaistaTekstia();
                 break;
-            case "7":
-                kontekstit();
-                break;
-            case "8":
-                samanlaiset();
+//            case "7":
+//                kontekstit();
+//                break;
+//            case "8":
+//                samanlaiset();
         }
     }
     
@@ -175,8 +175,8 @@ public class Kayttoliittyma {
         System.out.println("  4. Generoi satunnainen sana");
         System.out.println("  5. Generoi yleistä tekstiä alun perusteella");
         System.out.println("  6. Generoi satunnaista tekstiä alun perusteella");
-        System.out.println("  7. Etsi sanalle konteksteja");
-        System.out.println("  8. Etsi samankaltaisissa konteksteissa esiintyviä sanoja");
+//        System.out.println("  7. Etsi sanalle konteksteja");
+//        System.out.println("  8. Etsi samankaltaisissa konteksteissa esiintyviä sanoja");
         System.out.println("Tyhjä komento lopettaa ohjelman");
     }
     

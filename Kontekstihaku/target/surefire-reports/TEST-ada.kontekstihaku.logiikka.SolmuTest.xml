@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="ada.kontekstihaku.logiikka.SolmuTest" time="0.029" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="ada.kontekstihaku.logiikka.SolmuTest" time="0.013" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -63,11 +63,11 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testToString" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaLapsi" time="0.001"/>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaKuuluvienSanojenMaaraa" time="0.001"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaLapsi" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testLisaaKuuluvienSanojenMaaraa" time="0"/>
   <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEtsiLapsi" time="0"/>
   <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testGetLapset" time="0"/>
   <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEtsiLastenArvoista" time="0"/>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testArvo" time="0.001"/>
-  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEquals" time="0.002"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testArvo" time="0"/>
+  <testcase classname="ada.kontekstihaku.logiikka.SolmuTest" name="testEquals" time="0"/>
 </testsuite>
